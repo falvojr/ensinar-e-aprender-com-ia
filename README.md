@@ -19,7 +19,12 @@ Um único `index.html`, sem build. Para apresentar:
 
 ## 🧭 A História em Sete Capítulos
 
-Duas trilhas, a pesquisa em Engenharia de Software aplicada à educação e a atuação na indústria, que se encontram quando aulas reais viram estudo de caso. Uma barra no topo dos slides mostra em que capítulo a história está.
+Duas trilhas que se encontram quando aulas reais viram estudo de caso e seguem juntas até a IA generativa e os agentes:
+
+- **🔬 Pesquisa:** Doutor em Ciências de Computação (ICMC-USP), com foco em Engenharia de Software aplicada à educação.
+- **🏭 Indústria:** Consultor em TI e Educação, com o time de Educação da DIO.
+
+Uma barra no topo dos slides mostra em que capítulo a história está.
 
 1. **Reusar** (mestrado, 2012 a 2015): como construir apps de aprendizagem móvel sem começar do zero? Uma linha de produto de software.
 2. **Mapear** (2020): 185 estudos sobre tecnologia no ensino com línguas de sinais mostram que só duas soluções eram claramente multiplataforma e que faltavam padrões e boas práticas para reusar objetos de aprendizagem.
