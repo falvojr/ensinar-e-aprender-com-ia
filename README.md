@@ -1,5 +1,7 @@
 # Educação na Era dos Agentes de IA: Oportunidades e Desafios
 
+**Venilton FalvoJr** · Doutor em Ciências de Computação (ICMC-USP) · Consultor em TI e Educação
+
 Muito se fala em agentes de IA, mas o que muda na prática para quem ensina e para quem aprende? Nesta palestra, compartilho experiências reais da Edtech DIO, dos primeiros usos de IA generativa até a evolução atual para agentes e harness, como o Claude Code em projetos super automatizados, mostrando sem hype onde essas ferramentas ajudam de verdade e onde ainda ficam devendo. A conversa conecta essa vivência técnica com a pesquisa que venho desenvolvendo em IA aplicada à educação.
 
 > Relato pessoal: as opiniões são minhas e não representam a DIO.
