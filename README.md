@@ -10,7 +10,7 @@ Muito se fala em agentes de IA, mas o que muda na prática para quem ensina e pa
 
 Um único `index.html`, sem build. Para apresentar:
 
-- **→, Espaço ou PageDown** avançam; **←** volta. No slide "Hype ou Realidade?", as setas revelam um carimbo de cada vez.
+- **→, Espaço ou PageDown** avançam; **←** volta. Dois slides têm uma etapa a mais: no 7, a seta mostra a comparação e o gráfico; no 12, revela um carimbo de cada vez.
 - **P** abre as notas do apresentador em outra janela, com cronômetro. Deixe essa janela no segundo monitor e compartilhe só a dos slides.
 - **N** mostra as notas na própria tela, para ensaiar.
 - **F** liga a tela cheia. **Ctrl+P** gera um PDF com um slide por página, como plano B offline.

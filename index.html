@@ -227,6 +227,10 @@ body.idle { cursor: none; }
         .bars h3 { font: 500 17px var(--mono); color: var(--soft); margin-bottom: 6px; }
         .bar { display: grid; grid-template-columns: 130px 1fr 60px; gap: 14px; align-items: center; font-size: 20px; color: var(--muted); }
         .bar i { display: block; height: 26px; border-radius: 6px; background: rgba(169, 180, 207, 0.35); }
+        .bars.frag .bar i { transform: scaleX(0); transform-origin: left center; transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s; }
+        .bars.frag.on .bar i { transform: scaleX(1); }
+        @media (prefers-reduced-motion: reduce) { .bars.frag .bar i { transition: none; } }
+        @media print { .bars.frag .bar i { transform: none !important; } }
         .bar.best { color: var(--text); font-weight: 600; }
         .bar.best i { background: var(--accent); }
         .bar em { font-style: normal; font: 600 19px var(--mono); }
@@ -481,10 +485,10 @@ body.idle { cursor: none; }
             <div class="virada">
                 <div>
                     <p>Em 2022, a OpenAI lançou o <strong>Whisper</strong>, para fala, e o <strong>ChatGPT</strong>, para texto.</p>
-                    <p>Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper teve a maior média nos três idiomas.</p>
-                    <p class="insight">Como o serviço de fala era peça trocável, o novo modelo virou o padrão sem reescrever a arquitetura.</p>
+                    <p class="frag" data-step="resultado">Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper teve a maior média nos três idiomas.</p>
+                    <p class="insight frag" data-step="resultado">Como o serviço de fala era peça trocável, o novo modelo virou o padrão sem reescrever a arquitetura.</p>
                 </div>
-                <div class="bars" role="img" aria-label="Similaridade léxica média em português, índice de Jaccard de 0 a 1: OpenAI 0,67; Microsoft 0,59; IBM 0,58; Amazon 0,54; Google 0,52">
+                <div class="bars frag" data-step="resultado" role="img" aria-label="Similaridade léxica média em português, índice de Jaccard de 0 a 1: OpenAI 0,67; Microsoft 0,59; IBM 0,58; Amazon 0,54; Google 0,52">
                     <h3>Similaridade léxica média em português (índice de Jaccard, de 0 a 1) <span class="cites" data-refs="hicss2024"></span></h3>
                     <div class="bar best"><span>OpenAI</span><i style="width: 100%"></i><em>0,67</em></div>
                     <div class="bar"><span>Microsoft</span><i style="width: 88%"></i><em>0,59</em></div>
@@ -495,6 +499,7 @@ body.idle { cursor: none; }
             </div>
             <aside class="notes">
                 <ul>
+                    <li>Conte primeiro a chegada do Whisper e do ChatGPT. A seta mostra a comparação e o gráfico.</li>
                     <li>O doutorado começou antes da IA generativa. A virada aconteceu com o trabalho em andamento.</li>
                     <li>Se perguntarem de estatística: a diferença entre os serviços foi significativa só em inglês (ANOVA). Em português e espanhol, a vantagem do Whisper é pequena.</li>
                     <li>O Whisper usa a mesma família de arquitetura do ChatGPT, os Transformers. A arquitetura é de 2017; o que 2022 trouxe foram modelos grandes, treinados em escala, abertos ao público.</li>
@@ -814,7 +819,7 @@ body.idle { cursor: none; }
     </script>
     <script>
 // Motor dos slides.
-// Teclas: → Espaço PageDown avançam (no slide 12, revelam os carimbos antes); ← PageUp voltam;
+// Teclas: → Espaço PageDown avançam (nos slides 7 e 12, revelam uma etapa antes); ← PageUp voltam;
 // Home e End; F tela cheia; N notas na tela; P notas do apresentador em outra janela.
 (function () {
     const stage = document.querySelector('.stage');
@@ -870,15 +875,22 @@ body.idle { cursor: none; }
         updatePresenter();
     }
 
+    // Fragmentos com o mesmo data-step aparecem e somem juntos.
+    function stepOf(list, f) {
+        return f.dataset.step ? list.filter(function (x) { return x.dataset.step === f.dataset.step; }) : [f];
+    }
+
     function next() {
-        const hidden = frags(current).find(function (f) { return !f.classList.contains('on'); });
-        if (hidden) { hidden.classList.add('on'); updatePresenter(); return; }
+        const all = frags(current);
+        const hidden = all.find(function (f) { return !f.classList.contains('on'); });
+        if (hidden) { stepOf(all, hidden).forEach(function (f) { f.classList.add('on'); }); updatePresenter(); return; }
         if (current < total - 1) go(current + 1, 'start');
     }
 
     function prev() {
-        const shown = frags(current).filter(function (f) { return f.classList.contains('on'); });
-        if (shown.length) { shown[shown.length - 1].classList.remove('on'); updatePresenter(); return; }
+        const all = frags(current);
+        const shown = all.filter(function (f) { return f.classList.contains('on'); });
+        if (shown.length) { stepOf(all, shown[shown.length - 1]).forEach(function (f) { f.classList.remove('on'); }); updatePresenter(); return; }
         if (current > 0) go(current - 1, 'end');
     }
 
