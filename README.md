@@ -17,12 +17,12 @@ Um único `index.html`, sem build. Para apresentar:
 
 ## 🧭 A História em Sete Capítulos
 
-Duas trilhas, a pesquisa em Engenharia de Software aplicada à educação e a atuação na indústria, que se encontram quando Aulas reais viram estudo de caso. Uma barra no topo dos slides mostra em que capítulo a história está.
+Duas trilhas, a pesquisa em Engenharia de Software aplicada à educação e a atuação na indústria, que se encontram quando aulas reais viram estudo de caso. Uma barra no topo dos slides mostra em que capítulo a história está.
 
 1. **Reusar** (mestrado): como construir apps de aprendizagem móvel sem começar do zero? Uma linha de produto de software.
 2. **Mapear** (2020): 185 estudos sobre tecnologia no ensino com línguas de sinais mostram muitas soluções pontuais e poucos ambientes integrados.
-3. **Arquitetar** (doutorado): a Speech2Learning, uma arquitetura que usa reconhecimento de fala para tornar Aulas em vídeo acessíveis, com o serviço de fala como peça trocável.
-4. **Medir** (2022 a 2024): no meio do caminho chegam o Whisper e o ChatGPT. Entre cinco serviços testados com Aulas reais, o Whisper fica na frente e vira o padrão sem reescrever a arquitetura.
+3. **Arquitetar** (doutorado): a Speech2Learning, uma arquitetura que usa reconhecimento de fala para tornar aulas em vídeo acessíveis, com o serviço de fala como peça trocável.
+4. **Medir** (2022 a 2024): no meio do caminho chegam o Whisper e o ChatGPT. Entre cinco serviços testados com aulas reais, o Whisper fica na frente e vira o padrão sem reescrever a arquitetura.
 5. **Ouvir** (2024 a 2026): intérpretes de Libras mostram que precisão não é compreensão. A tese termina apontando para agentes de IA na arquitetura.
 6. **Agir** (hoje): na indústria, de transcrever a escrever, encadear e agir com agentes e harness. O que a pesquisa ensinou à prática: reusar, desacoplar, medir e validar.
 7. **Próximo** (futuro): na pesquisa, ampliar a amostra com o player v2 e, depois, levar a hipótese do agente intermediário à validação com intérpretes e estudantes surdos. Na indústria, agentes com uma pessoa no circuito.
