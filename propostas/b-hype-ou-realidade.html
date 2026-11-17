@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta B · Hype ou Realidade?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="engine.css">
+    <style>
+        :root {
+            --frame: #000;
+            --bg: #0e0e0e;
+            --text: #f5f5f0;
+            --muted: #b9b9b0;
+            --soft: #85857d;
+            --accent: #ffe14d;
+            --mito: #ff5a5a;
+            --meia: #ffb020;
+            --real: #2ee59d;
+            --line: rgba(255, 255, 255, 0.14);
+            --font-body: 'Inter', system-ui, sans-serif;
+            --display: 'Archivo', 'Inter', system-ui, sans-serif;
+        }
+
+        .tag { display: inline-block; align-self: flex-start; font: 900 24px var(--display); letter-spacing: 0.08em; text-transform: uppercase; color: #111; background: var(--accent); padding: 8px 18px; transform: rotate(-2deg); margin-bottom: 30px; }
+        h1 { font: 900 100px/1.0 var(--display); letter-spacing: -0.02em; max-width: 1250px; }
+        h2 { font: 900 70px/1.05 var(--display); letter-spacing: -0.015em; margin-bottom: 32px; }
+        mark { background: none; color: var(--accent); }
+        .sub { font: 700 40px var(--display); color: var(--muted); margin-top: 18px; }
+        .who { margin-top: 64px; font: 700 30px var(--display); }
+        .who span { display: block; font: 400 21px var(--font-body); color: var(--muted); margin-top: 6px; }
+        .lead { font-size: 34px; line-height: 1.45; color: var(--muted); max-width: 1200px; }
+        .lead strong { color: var(--text); }
+        .small { font-size: 20px; color: var(--soft); }
+
+        .lines { display: flex; flex-direction: column; gap: 20px; font-size: 32px; color: var(--muted); }
+        .lines b { color: var(--text); }
+        .disclaimer { margin-top: 50px; font-size: 20px; color: var(--soft); border-left: 4px solid var(--accent); padding-left: 16px; }
+
+        /* Carimbos */
+        .stamp { display: inline-block; font: 900 46px var(--display); letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 26px; border: 6px solid currentColor; border-radius: 14px; transform: rotate(-6deg); }
+        .stamp.mito { color: var(--mito); }
+        .stamp.meia { color: var(--meia); }
+        .stamp.real { color: var(--real); }
+        .legend { display: flex; gap: 46px; margin-top: 54px; align-items: center; }
+
+        /* Chatbot x agente */
+        .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .duo .box { border: 2px solid var(--line); border-radius: 22px; padding: 34px 36px; }
+        .duo h3 { font: 900 50px var(--display); margin-bottom: 20px; }
+        .duo .flow { font: 600 25px var(--font-body); color: var(--muted); line-height: 1.6; }
+        .duo .flow b { color: var(--accent); }
+        .harness-note { margin-top: 34px; font-size: 26px; color: var(--muted); }
+        .harness-note strong { color: var(--text); }
+
+        /* Frases */
+        .count { font: 800 22px var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); margin-bottom: 26px; }
+        .claim { font: 800 82px/1.1 var(--display); letter-spacing: -0.015em; max-width: 1300px; }
+        .claim::before { content: "“"; color: var(--accent); }
+        .claim::after { content: "”"; color: var(--accent); }
+        .verdict { display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; margin-top: 60px; }
+        .verdict.frag { transform: scale(1.08); }
+        .verdict.frag.on { transform: none; }
+        .verdict p { font-size: 30px; line-height: 1.45; color: var(--muted); }
+        .verdict p strong { color: var(--text); }
+        .verdict .cite { display: block; margin-top: 12px; font-size: 18px; color: var(--soft); letter-spacing: 0.02em; }
+
+        /* Placar */
+        .board { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; gap: 16px 40px; }
+        .board div { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 22px; border-radius: 14px; border: 1px solid var(--line); font: 700 25px var(--display); }
+        .board .stamp { font-size: 20px; border-width: 3px; padding: 4px 12px; border-radius: 8px; transform: rotate(-3deg); flex: none; }
+
+        /* Para levar */
+        .takeaways { display: flex; flex-direction: column; gap: 28px; }
+        .takeaway { display: grid; grid-template-columns: 90px 1fr; align-items: center; font-size: 34px; line-height: 1.4; color: var(--muted); }
+        .takeaway b { font: 900 60px var(--display); color: var(--accent); }
+        .takeaway strong { color: var(--text); }
+
+        /* Encerramento */
+        .end { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        .end h1 { font-size: 120px; }
+        .refs h3 { font: 800 20px var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 16px; }
+        .refs li { list-style: none; font-size: 19px; line-height: 1.4; color: var(--muted); margin-bottom: 14px; }
+        .refs li b { color: var(--text); }
+        .refs a { color: var(--accent); text-underline-offset: 4px; }
+    </style>
+</head>
+<body>
+    <div class="stage">
+
+        <section class="slide" data-title="Capa">
+            <span class="tag">Hype ou realidade?</span>
+            <h1>Educação na Era dos Agentes de IA</h1>
+            <p class="sub">Oportunidades e Desafios</p>
+            <p class="who">Venilton FalvoJr<span>Consultor em TI · Pesquisador em IA aplicada à educação</span></p>
+            <aside class="notes"><ul><li>Abrir dizendo que hoje o público vai votar. A palestra é um jogo de hype ou realidade.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="Quem Fala">
+            <h2>Quem Fala</h2>
+            <div class="lines">
+                <p>🛠️ <b>Consultor independente de TI</b>, de arquitetura e automação.</p>
+                <p>🎓 <b>Colaboro com o time de Education da DIO</b>, onde vivi o que vou contar.</p>
+                <p>🔬 <b>Pesquiso IA aplicada à educação</b> desde 2020, no ICMC-USP.</p>
+            </div>
+            <p class="disclaimer">Relato pessoal: as opiniões são minhas e não representam a DIO.</p>
+            <aside class="notes"><ul><li>Três chapéus em 40 segundos. O aviso de relato pessoal com naturalidade.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="Regra do Jogo">
+            <h2>Regra do Jogo</h2>
+            <p class="lead">Eu leio uma frase que você <strong>já ouviu por aí</strong>. Você vota no chat. Depois eu conto o que vi na prática, na edtech e na pesquisa.</p>
+            <div class="legend">
+                <span class="stamp mito">Mito</span>
+                <span class="stamp meia">Meia-verdade</span>
+                <span class="stamp real">Realidade</span>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Combinar o voto: M, MV ou R no chat.</li>
+                    <li>A pergunta de fundo é a do título: o que muda para quem ensina e para quem aprende.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Chatbot e Agente">
+            <h2>Antes, Duas Palavras</h2>
+            <div class="duo">
+                <div class="box">
+                    <h3>Chatbot responde.</h3>
+                    <p class="flow">Você pergunta <b>→</b> ele responde <b>→</b> você decide o próximo passo.</p>
+                </div>
+                <div class="box frag">
+                    <h3>Agente age.</h3>
+                    <p class="flow">Você dá um objetivo <b>→</b> ele lê, planeja, usa ferramentas e confere <b>↺</b> até entregar.</p>
+                </div>
+            </div>
+            <p class="harness-note frag"><strong>Harness</strong> é o ambiente onde o agente trabalha, com ferramentas, regras e limites. O Claude Code é um exemplo.</p>
+            <aside class="notes">
+                <ul>
+                    <li>Chatbot explica o caminho; agente caminha junto.</li>
+                    <li>Mostrar como foi a evolução que vivi: transcrição, prompt, pipeline, agente.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 1 · Substituir o Professor">
+            <p class="count">Frase 1 de 7</p>
+            <p class="claim">A IA vai substituir o professor.</p>
+            <div class="verdict frag">
+                <span class="stamp mito">Mito</span>
+                <p>Avaliando avatares de Libras, intérpretes descreveram a tecnologia como <strong>transicional</strong>: melhor que nada quando não há intérprete, nunca substituta.<span class="cite">FalvoJr et al. · IEEE FIE 2026</span></p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Esperar uns segundos de votos antes de revelar.</li>
+                    <li>A mesma lógica vale para agentes: ampliam o alcance de quem ensina, não justificam cortar quem ensina.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 2 · Curso com um Prompt">
+            <p class="count">Frase 2 de 7</p>
+            <p class="claim">Com um bom prompt, a IA cria o curso inteiro.</p>
+            <div class="verdict frag">
+                <span class="stamp meia">Meia-verdade</span>
+                <p>Cria um ótimo <strong>primeiro rascunho</strong>. Curadoria, checagem e a voz de quem ensina continuam humanas.</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Conte um caso seu de rascunho rápido que precisou de muita curadoria.</li>
+                    <li>A era do prompt: cada conversa começa do zero, e o contexto mora na cabeça de quem pergunta.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 3 · Acessibilidade em Escala">
+            <p class="count">Frase 3 de 7</p>
+            <p class="claim">A IA torna o conteúdo acessível em escala.</p>
+            <div class="verdict frag">
+                <span class="stamp real">Realidade</span>
+                <p>Transcrever um acervo inteiro virou viável. Antes de escolher, testamos <strong>cinco serviços</strong> com Aulas reais, e a diferença entre eles era grande.<span class="cite">FalvoJr et al. · HICSS 2024 · IEEE FIE 2024</span></p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Amazon, Google, IBM, Microsoft e Whisper, em português, inglês e espanhol. O Whisper se destacou.</li>
+                    <li>Lição: teste com o seu conteúdo, não com o anúncio. Vale para escolher modelo de agente hoje.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 4 · Métrica Boa">
+            <p class="count">Frase 4 de 7</p>
+            <p class="claim">Se a métrica está boa, funciona para quem aprende.</p>
+            <div class="verdict frag">
+                <span class="stamp mito">Mito</span>
+                <p>A transcrição era precisa e o avatar sinalizava. Para quem tem Libras como primeira língua, <strong>o sentido se perdia</strong>.<span class="cite">FalvoJr et al. · IEEE FIE 2026</span></p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Barreira semântica: tradução palavra por palavra, sem expressão facial, que em Libras carrega gramática.</li>
+                    <li>Precisão não é compreensão. Vale para qualquer agente que "acerta o formato".</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 5 · Agentes na Produção">
+            <p class="count">Frase 5 de 7</p>
+            <p class="claim">Agentes já mudaram como se produz educação.</p>
+            <div class="verdict frag">
+                <span class="stamp real">Realidade</span>
+                <p>Do rascunho à revisão e à publicação, num harness com regras e ferramentas, e com <strong>uma pessoa aprovando o que não tem volta</strong>.</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Contar como é o dia a dia com o Claude Code: regras escritas em arquivo, skills, scripts que conferem, aprovação item a item.</li>
+                    <li>Insight de consultor: trocar de modelo é fácil; o que dá resultado é o harness.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 6 · Revisor sem Erro">
+            <p class="count">Frase 6 de 7</p>
+            <p class="claim">Um agente revisor elimina os erros do conteúdo.</p>
+            <div class="verdict frag">
+                <span class="stamp mito">Mito</span>
+                <p>Encontra muitos erros, e também cria alguns, <strong>com a mesma confiança</strong>. O que resolve é revisor independente e volta à fonte.</p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Exemplo seu: um agente que propôs correções e parte delas caiu quando voltamos à fonte oficial.</li>
+                    <li>Pergunta ao chat: "quem revisa o revisor?"</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Frase 7 · Democratizar">
+            <p class="count">Frase 7 de 7</p>
+            <p class="claim">A IA democratiza o aprendizado.</p>
+            <div class="verdict frag">
+                <span class="stamp meia">Meia-verdade</span>
+                <p>Ajuda mais quem já tem repertório para julgar a resposta. É a <strong>acessibilidade seletiva</strong> que vimos com Libras, agora com agentes.<span class="cite">FalvoJr et al. · IEEE FIE 2026</span></p>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>No player, quem dominava o português usava o texto para entender o avatar. Quem não dominava ficava de fora.</li>
+                    <li>Com agentes, quem já sabe pergunta melhor e percebe o erro. Desenhar a ajuda para quem está começando.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Placar">
+            <h2>Placar</h2>
+            <div class="board">
+                <div>Substituir o professor <span class="stamp mito">Mito</span></div>
+                <div>Curso inteiro com um prompt <span class="stamp meia">Meia-verdade</span></div>
+                <div>Acessibilidade em escala <span class="stamp real">Realidade</span></div>
+                <div>Métrica boa basta <span class="stamp mito">Mito</span></div>
+                <div>Agentes mudaram a produção <span class="stamp real">Realidade</span></div>
+                <div>Revisor que elimina erros <span class="stamp mito">Mito</span></div>
+                <div>Democratizar o aprendizado <span class="stamp meia">Meia-verdade</span></div>
+            </div>
+            <p class="lead" style="margin-top: 36px;">O saldo é positivo, <strong>desde que alguém confira</strong>.</p>
+            <aside class="notes"><ul><li>Comparar com os votos do chat: em quais o público acertou e em quais se surpreendeu.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="O Que Sobra Depois do Hype">
+            <h2>O Que Sobra Depois do Hype</h2>
+            <div class="takeaways">
+                <div class="takeaway frag"><b>1</b><span><strong>O harness pesa mais que o modelo.</strong> Regras, ferramentas e verificação.</span></div>
+                <div class="takeaway frag"><b>2</b><span><strong>Métrica técnica não é aprendizado.</strong> Valide com quem aprende e com quem entende do assunto.</span></div>
+                <div class="takeaway frag"><b>3</b><span><strong>A IA apoia quem ensina e quem aprende.</strong> A decisão continua humana.</span></div>
+            </div>
+            <aside class="notes"><ul><li>Falar devagar. Abrir para perguntas.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="Obrigado">
+            <div class="end">
+                <div>
+                    <h1>Obrigado!</h1>
+                    <p class="who" style="margin-top: 20px;">@falvojr</p>
+                </div>
+                <div class="refs">
+                    <h3>Para se aprofundar</h3>
+                    <ul>
+                        <li><b>RENOTE 2020</b> · Tecnologias no ensino com línguas de sinais: mapeamento sistemático. <a href="https://seer.ufrgs.br/renote/article/view/110217/0" target="_blank" rel="noopener">link</a></li>
+                        <li><b>HICSS 2024</b> · Lexical Analysis of Automatic Transcriptions Using Speech-to-Text Services. <a href="https://hdl.handle.net/10125/107023" target="_blank" rel="noopener">link</a></li>
+                        <li><b>IEEE FIE 2024</b> · Enhancing Learning Objects Accessibility Through Speech-To-Text. <a href="https://doi.org/10.1109/FIE61694.2024.10893453" target="_blank" rel="noopener">link</a></li>
+                        <li><b>Tese ICMC-USP 2024</b> · Speech2Learning. <a href="https://doi.org/10.11606/T.55.2024.tde-15012025-095523" target="_blank" rel="noopener">link</a></li>
+                        <li><b>IEEE FIE 2026</b> · ASR Integrated with Sign Language Avatars: Interpreter Perspectives.</li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="notes"><ul><li>Perguntas. Provocação reserva: "qual frase você acrescentaria ao jogo?"</li></ul></aside>
+        </section>
+
+    </div>
+    <script src="engine.js"></script>
+</body>
+</html>

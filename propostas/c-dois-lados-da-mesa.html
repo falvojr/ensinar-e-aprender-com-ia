@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta C · Os Dois Lados da Mesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="engine.css">
+    <style>
+        :root {
+            --frame: #2a2622;
+            --bg: #f6f2ea;
+            --text: #1f2230;
+            --muted: #525767;
+            --soft: #868a96;
+            --accent: #3d40c9;
+            --coral: #d9573a;
+            --line: rgba(31, 34, 48, 0.14);
+            --card: #ffffff;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --serif: 'Fraunces', Georgia, serif;
+        }
+
+        .kicker { font: 600 19px var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; }
+        h1 { font: 700 96px/1.04 var(--serif); letter-spacing: -0.015em; max-width: 1200px; }
+        h2 { font: 700 64px/1.1 var(--serif); margin-bottom: 30px; }
+        .sub { font: 500 40px var(--serif); font-style: italic; color: var(--accent); margin-top: 16px; }
+        .who { margin-top: 64px; font-size: 28px; font-weight: 700; }
+        .who span { display: block; font-size: 21px; font-weight: 400; color: var(--muted); margin-top: 6px; }
+        .lead { font-size: 32px; line-height: 1.45; color: var(--muted); max-width: 1150px; }
+        .lead strong { color: var(--text); }
+        .cite { position: absolute; left: 110px; bottom: 46px; font-size: 17px; color: var(--soft); font-style: italic; }
+
+        .lines { display: flex; flex-direction: column; gap: 22px; font-size: 31px; color: var(--muted); }
+        .lines b { color: var(--text); }
+        .disclaimer { margin-top: 50px; font-size: 20px; color: var(--soft); font-style: italic; }
+
+        /* A mesa */
+        .table-wrap { margin-top: 50px; }
+        .table-top { position: relative; height: 16px; border-radius: 8px; background: #b9a68f; }
+        .table-top .chip { position: absolute; left: 50%; top: -58px; transform: translateX(-50%); font: 700 26px var(--font-body); background: var(--accent); color: #fff; padding: 10px 26px; border-radius: 999px; }
+        .table-sides { display: flex; justify-content: space-between; margin-top: 26px; }
+        .table-sides div { font: 700 44px var(--serif); }
+        .table-sides small { display: block; font: 400 22px var(--font-body); color: var(--muted); margin-top: 6px; }
+        .table-sides div:last-child { text-align: right; }
+
+        /* Três passos */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+        .stepc { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 30px 30px 34px; box-shadow: 0 10px 30px rgba(31, 34, 48, 0.06); }
+        .stepc .n { font: 700 54px var(--serif); color: var(--coral); }
+        .stepc h3 { font: 700 34px var(--serif); margin: 4px 0 10px; }
+        .stepc p { font-size: 23px; line-height: 1.45; color: var(--muted); }
+        .note { margin-top: 34px; font-size: 25px; color: var(--muted); }
+        .note strong { color: var(--text); }
+
+        /* Cenas */
+        .scenes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+        .scene { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 30px 30px 32px; box-shadow: 0 10px 30px rgba(31, 34, 48, 0.06); display: flex; flex-direction: column; }
+        .scene .ic { font-size: 44px; margin-bottom: 14px; }
+        .scene h3 { font: 700 33px/1.15 var(--serif); margin-bottom: 14px; }
+        .scene p { font-size: 22px; line-height: 1.45; color: var(--muted); }
+        .scene .care { margin-top: auto; padding-top: 16px; font-size: 21px; color: var(--coral); font-weight: 600; }
+        .side-title { display: flex; align-items: baseline; gap: 20px; }
+        .side-title span { font: 600 22px var(--font-body); color: var(--soft); }
+
+        /* Pesquisa */
+        .neq { font: 700 92px/1.05 var(--serif); margin-bottom: 26px; }
+        .neq i { color: var(--coral); font-style: normal; }
+        .themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 34px; }
+        .theme { border-top: 4px solid var(--accent); padding-top: 16px; }
+        .theme b { display: block; font: 700 28px var(--serif); margin-bottom: 8px; }
+        .theme span { font-size: 22px; color: var(--muted); line-height: 1.4; }
+
+        /* Balanço */
+        .ledger { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .ledger h3 { font: 700 40px var(--serif); margin-bottom: 20px; }
+        .ledger .good h3 { color: var(--accent); }
+        .ledger .bad h3 { color: var(--coral); }
+        .ledger p { font-size: 28px; line-height: 1.4; color: var(--muted); padding: 14px 0; border-bottom: 1px solid var(--line); }
+
+        /* O que fica */
+        .stays { display: flex; flex-direction: column; gap: 26px; }
+        .stays p { font: 700 58px/1.15 var(--serif); }
+        .stays p span { color: var(--coral); }
+
+        /* Para levar */
+        .takeaways { display: flex; flex-direction: column; gap: 26px; }
+        .takeaway { display: grid; grid-template-columns: 90px 1fr; align-items: baseline; font-size: 33px; line-height: 1.4; color: var(--muted); }
+        .takeaway b { font: 700 58px var(--serif); color: var(--accent); }
+        .takeaway strong { color: var(--text); }
+
+        /* Encerramento */
+        .end { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        .end h1 { font-size: 116px; }
+        .refs h3 { font: 600 19px var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 16px; }
+        .refs li { list-style: none; font-size: 19px; line-height: 1.4; color: var(--muted); margin-bottom: 14px; }
+        .refs li b { color: var(--text); }
+        .refs a { color: var(--accent); text-underline-offset: 4px; }
+    </style>
+</head>
+<body>
+    <div class="stage">
+
+        <section class="slide" data-title="Capa">
+            <p class="kicker">Seminário · 17 de novembro de 2026</p>
+            <h1>Educação na Era dos Agentes de IA</h1>
+            <p class="sub">Oportunidades e Desafios</p>
+            <p class="who">Venilton FalvoJr<span>Consultor em TI · Pesquisador em IA aplicada à educação</span></p>
+            <aside class="notes"><ul><li>Abrir com uma cena: "imagine uma mesa com quem ensina de um lado e quem aprende do outro. A IA acabou de sentar no meio."</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="Quem Fala">
+            <p class="kicker">Quem fala</p>
+            <h2>Um Relato de Quem Constrói e Pesquisa</h2>
+            <div class="lines">
+                <p>🛠️ <b>Consultor independente de TI</b>, de arquitetura e automação.</p>
+                <p>🎓 <b>Colaboro com o time de Education da DIO</b>, onde vivi o que vou contar.</p>
+                <p>🔬 <b>Pesquiso IA aplicada à educação</b> desde 2020, no ICMC-USP.</p>
+            </div>
+            <p class="disclaimer">Relato pessoal: as opiniões são minhas e não representam a DIO.</p>
+            <aside class="notes"><ul><li>Três chapéus em 40 segundos. O aviso de relato pessoal com naturalidade.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="A Mesa">
+            <p class="kicker">A pergunta de hoje</p>
+            <h2>O Que Muda para Cada Lado da Mesa?</h2>
+            <div class="table-wrap">
+                <div class="table-top"><span class="chip">🤖 IA</span></div>
+                <div class="table-sides">
+                    <div>Quem ensina<small>produz, revisa, acompanha</small></div>
+                    <div>Quem aprende<small>estuda, pratica, planeja</small></div>
+                </div>
+            </div>
+            <p class="lead" style="margin-top: 50px;">Sem hype: onde ajuda de verdade e onde ainda fica devendo.</p>
+            <aside class="notes">
+                <ul>
+                    <li>Pedir no chat: "de que lado da mesa você está hoje?"</li>
+                    <li>Avisar o roteiro: um minuto de vocabulário, três cenas de cada lado, e o que a pesquisa mostrou.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Do Chatbot ao Agente">
+            <p class="kicker">Em um minuto</p>
+            <h2>Do Chatbot ao Agente</h2>
+            <div class="steps">
+                <div class="stepc frag"><span class="n">1</span><h3>Responder</h3><p>O chatbot: você pergunta, ele responde, você decide o próximo passo.</p></div>
+                <div class="stepc frag"><span class="n">2</span><h3>Encadear</h3><p>O pipeline: a mesma receita aplicada a centenas de conteúdos.</p></div>
+                <div class="stepc frag"><span class="n">3</span><h3>Agir</h3><p>O agente: lê, planeja, usa ferramentas e confere até cumprir o objetivo.</p></div>
+            </div>
+            <p class="note frag"><strong>Harness</strong> é o ambiente onde o agente trabalha, com ferramentas, regras e limites. O Claude Code é um exemplo.</p>
+            <aside class="notes">
+                <ul>
+                    <li>Foi a ordem em que vivi: primeiro o prompt, depois os pipelines, agora os agentes.</li>
+                    <li>Antes de tudo, a transcrição automática, que aparece de novo na pesquisa.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Quem Ensina">
+            <div class="side-title"><h2>Quem Ensina</h2><span>três cenas</span></div>
+            <div class="scenes">
+                <div class="scene frag">
+                    <span class="ic" aria-hidden="true">🖋️</span>
+                    <h3>O rascunho chega pronto</h3>
+                    <p>Aula, questão e roteiro saem em minutos.</p>
+                    <p class="care">Cuidado: a voz e o julgamento continuam seus.</p>
+                </div>
+                <div class="scene frag">
+                    <span class="ic" aria-hidden="true">🔎</span>
+                    <h3>O revisor que não cansa</h3>
+                    <p>Confere o conteúdo contra a fonte oficial, item por item.</p>
+                    <p class="care">Cuidado: também erra, com a mesma confiança.</p>
+                </div>
+                <div class="scene frag">
+                    <span class="ic" aria-hidden="true">♿</span>
+                    <h3>Acessibilidade em escala</h3>
+                    <p>Transcrever um acervo inteiro virou viável.</p>
+                    <p class="care">Cuidado: acessível para quem?</p>
+                </div>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Cena 1: um caso seu de rascunho rápido que pediu muita curadoria.</li>
+                    <li>Cena 2: o agente revisor que achou erros reais e criou outros. Quem revisa o revisor?</li>
+                    <li>Cena 3: testamos cinco serviços de transcrição antes de escolher (HICSS 2024, FIE 2024). A pergunta "para quem?" leva à pesquisa.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Quem Aprende">
+            <div class="side-title"><h2>Quem Aprende</h2><span>três cenas</span></div>
+            <div class="scenes">
+                <div class="scene frag">
+                    <span class="ic" aria-hidden="true">🌙</span>
+                    <h3>Um mentor às duas da manhã</h3>
+                    <p>Tira dúvida, propõe exercício e ajuda a planejar os estudos.</p>
+                    <p class="care">Cuidado: precisa de contexto para ajudar bem.</p>
+                </div>
+                <div class="scene frag">
+                    <span class="ic" aria-hidden="true">🏃</span>
+                    <h3>O atalho</h3>
+                    <p>A resposta pronta resolve o exercício de hoje.</p>
+                    <p class="care">Cuidado: pula o esforço que gera aprendizado.</p>
+                </div>
+                <div class="scene frag">
+                    <span class="ic" aria-hidden="true">🎯</span>
+                    <h3>Quem já sabe aproveita mais</h3>
+                    <p>Pergunta melhor e percebe quando a resposta está errada.</p>
+                    <p class="care">Cuidado: a ajuda precisa servir a quem está começando.</p>
+                </div>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>Cena 1: o agente como mentor que apoia a estudar, praticar e planejar.</li>
+                    <li>Cena 2: o prompt que muda tudo é "me ajuda a destravar sem me dar a resposta".</li>
+                    <li>Cena 3: é a acessibilidade seletiva da pesquisa, que vem no próximo slide.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="O Que a Pesquisa Mostrou">
+            <p class="kicker">O que a pesquisa mostrou</p>
+            <p class="neq">Precisão <i>não é</i> compreensão.</p>
+            <p class="lead">Levamos um player com transcrição automática e avatar de Libras a intérpretes profissionais. A transcrição estava boa. O sentido, nem sempre.</p>
+            <div class="themes">
+                <div class="theme frag"><b>Barreira semântica</b><span>O avatar acerta o sinal e perde o sentido.</span></div>
+                <div class="theme frag"><b>Tecnologia transicional</b><span>Melhor que nada, nunca substituta.</span></div>
+                <div class="theme frag"><b>Acessibilidade seletiva</b><span>Funciona melhor para quem já domina o português.</span></div>
+            </div>
+            <p class="cite">FalvoJr et al. · IEEE FIE 2026</p>
+            <aside class="notes">
+                <ul>
+                    <li>Paper deste ano no FIE: análise qualitativa com intérpretes de Libras.</li>
+                    <li>Troque "avatar" por "agente" e as três lições continuam valendo, dos dois lados da mesa.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="Ajuda e Fica Devendo">
+            <h2>Onde Ajuda, Onde Fica Devendo</h2>
+            <div class="ledger">
+                <div class="good frag">
+                    <h3>Ajuda de verdade</h3>
+                    <p>Primeiro rascunho a partir de boas fontes.</p>
+                    <p>Trabalho repetitivo com formato claro.</p>
+                    <p>Conferir contra uma referência.</p>
+                </div>
+                <div class="bad frag">
+                    <h3>Ainda fica devendo</h3>
+                    <p>Sentido e contexto.</p>
+                    <p>Verdade quando falta dado.</p>
+                    <p>Avaliar o próprio trabalho.</p>
+                </div>
+            </div>
+            <aside class="notes">
+                <ul>
+                    <li>O gargalo muda de lugar: produzir fica fácil, revisar vira o trabalho.</li>
+                    <li>Insight de consultor: o investimento que dura é no harness (regras, ferramentas, verificação), não no modelo da vez.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="slide" data-title="O Que Fica com as Pessoas">
+            <p class="kicker">O que fica com as pessoas</p>
+            <div class="stays">
+                <p class="frag">Decidir <span>o que vale</span> aprender.</p>
+                <p class="frag">Validar <span>o sentido</span>, e não só o formato.</p>
+                <p class="frag">Cuidar de <span>quem fica para trás</span>.</p>
+            </div>
+            <aside class="notes"><ul><li>Uma frase por vez, com pausa. É o fechamento emocional antes das ideias para levar.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="Para Levar">
+            <p class="kicker">Para levar</p>
+            <div class="takeaways">
+                <div class="takeaway frag"><b>1</b><span><strong>O harness pesa mais que o modelo.</strong> Regras, ferramentas e verificação.</span></div>
+                <div class="takeaway frag"><b>2</b><span><strong>Precisão técnica não garante aprendizado.</strong> Valide com quem aprende e com quem entende do assunto.</span></div>
+                <div class="takeaway frag"><b>3</b><span><strong>A IA apoia os dois lados da mesa.</strong> A decisão continua humana.</span></div>
+            </div>
+            <aside class="notes"><ul><li>Falar devagar. Abrir para perguntas.</li></ul></aside>
+        </section>
+
+        <section class="slide" data-title="Obrigado">
+            <div class="end">
+                <div>
+                    <h1>Obrigado!</h1>
+                    <p class="who" style="margin-top: 20px;">@falvojr</p>
+                </div>
+                <div class="refs">
+                    <h3>Para se aprofundar</h3>
+                    <ul>
+                        <li><b>RENOTE 2020</b> · Tecnologias no ensino com línguas de sinais: mapeamento sistemático. <a href="https://seer.ufrgs.br/renote/article/view/110217/0" target="_blank" rel="noopener">link</a></li>
+                        <li><b>HICSS 2024</b> · Lexical Analysis of Automatic Transcriptions Using Speech-to-Text Services. <a href="https://hdl.handle.net/10125/107023" target="_blank" rel="noopener">link</a></li>
+                        <li><b>IEEE FIE 2024</b> · Enhancing Learning Objects Accessibility Through Speech-To-Text. <a href="https://doi.org/10.1109/FIE61694.2024.10893453" target="_blank" rel="noopener">link</a></li>
+                        <li><b>Tese ICMC-USP 2024</b> · Speech2Learning. <a href="https://doi.org/10.11606/T.55.2024.tde-15012025-095523" target="_blank" rel="noopener">link</a></li>
+                        <li><b>IEEE FIE 2026</b> · ASR Integrated with Sign Language Avatars: Interpreter Perspectives.</li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="notes"><ul><li>Perguntas. Provocação reserva: "de que lado da mesa a IA mais mudou a sua rotina?"</li></ul></aside>
+        </section>
+
+    </div>
+    <script src="engine.js"></script>
+</body>
+</html>
