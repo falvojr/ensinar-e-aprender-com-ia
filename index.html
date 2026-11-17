@@ -55,15 +55,15 @@ a { color: inherit; }
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s;
+    transition: opacity 0.25s ease, visibility 0.25s;
 }
 
 .slide.active { opacity: 1; visibility: visible; z-index: 1; }
 
 .slide .notes { display: none; }
 
-.frag { opacity: 0; transform: translateY(14px); transition: opacity 0.35s ease, transform 0.35s ease; }
-.frag.on { opacity: 1; transform: none; }
+.frag { opacity: 0; transition: opacity 0.2s ease; }
+.frag.on { opacity: 1; }
 
 .controls {
     position: fixed;
@@ -171,7 +171,7 @@ body.idle { cursor: none; }
 
         /* Trilha no topo: onde estamos na história */
         .rail { position: absolute; top: 40px; left: 110px; right: 110px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
-        .rail span { font: 600 15px var(--mono); color: rgba(169, 180, 207, 0.45); border-top: 3px solid rgba(255, 255, 255, 0.1); padding-top: 8px; text-transform: lowercase; }
+        .rail span { font: 600 15px var(--mono); color: rgba(169, 180, 207, 0.45); border-top: 3px solid rgba(255, 255, 255, 0.1); padding-top: 8px; }
         .rail span small { display: block; font-weight: 500; font-size: 12.5px; margin-top: 2px; }
         .rail span.done { color: var(--muted); border-color: rgba(45, 212, 191, 0.4); }
         .rail span.now { color: var(--accent); border-color: var(--accent); }
@@ -254,7 +254,7 @@ body.idle { cursor: none; }
         /* Pesquisa x prática */
         .bridge { display: flex; flex-direction: column; gap: 10px; }
         .bridge .row, .bridge .heads { display: grid; grid-template-columns: 1fr 56px 1.35fr; gap: 8px; }
-        .bridge .head { font: 600 16px var(--mono); color: var(--soft); text-transform: lowercase; }
+        .bridge .head { font: 600 16px var(--mono); color: var(--soft); }
         .bridge .src, .bridge .dst { padding: 11px 22px; border-radius: 14px; border: 1px solid var(--line); }
         .bridge .src { background: rgba(45, 212, 191, 0.08); }
         .bridge .src b { display: block; font: 700 24px var(--display); }
@@ -267,8 +267,6 @@ body.idle { cursor: none; }
         .claim { display: grid; grid-template-columns: 1fr 340px; align-items: center; gap: 24px; padding: 18px 26px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
         .claim p { font: 700 32px/1.25 var(--display); color: var(--text); }
         .stamp { justify-self: center; display: inline-block; white-space: nowrap; font: 900 28px 'Archivo', var(--display); letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 18px; border: 5px solid currentColor; border-radius: 12px; transform: rotate(-5deg); }
-        .stamp.frag { transform: rotate(-5deg) scale(1.3); }
-        .stamp.frag.on { transform: rotate(-5deg); }
         .stamp.mito { color: var(--mito); }
         .stamp.meia { color: var(--meia); }
         .stamp.real { color: var(--real); }
@@ -340,6 +338,8 @@ body.idle { cursor: none; }
         .thanks .handle { font: 600 32px var(--mono); color: var(--accent); margin-top: 18px; }
         .thanks .lead { margin-top: 40px; }
         .thanks .lead + .lead { margin-top: 12px; }
+        .thanks .audience { margin-top: 14px; font-size: 25px; line-height: 1.4; color: var(--muted); border-left: 4px solid var(--warn); padding-left: 18px; max-width: 1180px; }
+        .thanks .audience strong { color: var(--text); }
         .thanks .lead a { color: var(--text); text-underline-offset: 6px; }
     </style>
 </head>
@@ -348,13 +348,13 @@ body.idle { cursor: none; }
 
         <!-- 1 -->
         <section class="slide cover no-rail" data-title="Capa">
-            <p class="label">seminário · 17.11.2026</p>
+            <p class="label">Seminário · 17.11.2026</p>
             <h1>Educação na Era dos Agentes de IA</h1>
             <p class="sub">Oportunidades e Desafios</p>
             <p class="who">Venilton FalvoJr<span>Consultor em TI · Pesquisador em IA aplicada à educação</span></p>
             <aside class="notes">
                 <ul>
-                    <li>Gancho: "quem aqui já ouviu a palavra agente mais vezes este ano do que em toda a vida?"</li>
+                    <li>Gancho: "Quem aqui já ouviu a palavra agente mais vezes este ano do que em toda a vida?"</li>
                     <li>Promessa: uma história real, da pesquisa à indústria, sem hype.</li>
                 </ul>
             </aside>
@@ -362,7 +362,7 @@ body.idle { cursor: none; }
 
         <!-- 2 -->
         <section class="slide no-rail tracks" data-title="Duas Trilhas que se Encontram">
-            <p class="label">de onde eu falo</p>
+            <p class="label">De onde eu falo</p>
             <h2>Duas Trilhas que se Encontram</h2>
             <svg viewBox="0 0 1380 330" role="img" aria-label="Duas linhas, pesquisa e indústria, que se encontram quando aulas reais viram estudo de caso e seguem juntas até a IA generativa e os agentes">
                 <defs>
@@ -386,7 +386,7 @@ body.idle { cursor: none; }
                 <path d="M400 252 C 620 252, 680 165, 860 165" fill="none" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
                 <path d="M860 165 L 1360 165" fill="none" stroke="url(#merge)" stroke-width="9" stroke-linecap="round" marker-end="url(#end)"/>
                 <circle cx="860" cy="165" r="13" fill="#e8eefc"/>
-                <text x="860" y="122" text-anchor="middle" fill="#e8eefc" font-family="Inter, sans-serif" font-size="20" font-weight="600">aulas reais viram estudo de caso</text>
+                <text x="860" y="122" text-anchor="middle" fill="#e8eefc" font-family="Inter, sans-serif" font-size="20" font-weight="600">Aulas reais viram estudo de caso</text>
                 <text x="1120" y="205" text-anchor="middle" fill="#a9b4cf" font-family="JetBrains Mono, monospace" font-size="18">IA generativa e agentes</text>
             </svg>
             <p class="disclaimer">Relato pessoal: as opiniões são minhas e não representam a DIO.</p>
@@ -401,12 +401,12 @@ body.idle { cursor: none; }
 
         <!-- 3 -->
         <section class="slide no-rail" data-title="A Pergunta">
-            <p class="label">a pergunta de hoje</p>
+            <p class="label">A pergunta de hoje</p>
             <p class="question">O que muda, na prática, para <em>quem ensina</em> e para <em>quem aprende</em>?</p>
             <p class="lead" style="margin-top: 36px;">Para responder sem hype, vou contar como a pesquisa começou e como a IA mudou os nossos achados.</p>
             <aside class="notes">
                 <ul>
-                    <li>Pedir no chat: "você usa IA mais para ensinar, para aprender ou para os dois?"</li>
+                    <li>Pedir no chat: "Você usa IA mais para ensinar, para aprender ou para os dois?"</li>
                     <li>Anunciar: sete capítulos, do mestrado ao que vem pela frente.</li>
                 </ul>
             </aside>
@@ -415,11 +415,11 @@ body.idle { cursor: none; }
         <!-- 4 -->
         <section class="slide" data-title="Capítulo 1 · Reusar">
             <div class="rail" data-at="1"></div>
-            <p class="label">capítulo 1 · mestrado</p>
+            <p class="label">Capítulo 1 · Mestrado</p>
             <h2>Reusar o Comum, Variar o Específico</h2>
             <p class="lead">A pergunta do mestrado: como construir apps de aprendizagem móvel <strong>sem começar do zero</strong> a cada projeto?</p>
-            <div class="answer frag"><b aria-hidden="true">🧩</b><p>Uma linha de produto de software: um núcleo reutilizável e as variações de cada contexto educacional <span class="cites" data-refs="jucs2022"></span>.</p></div>
-            <p class="note frag">Primeira lição de engenharia que levo até hoje: <strong>reuso e variabilidade</strong>.</p>
+            <div class="answer"><b aria-hidden="true">🧩</b><p>Uma linha de produto de software: um núcleo reutilizável e as variações de cada contexto educacional <span class="cites" data-refs="jucs2022"></span>.</p></div>
+            <p class="note">Primeira lição de engenharia que levo até hoje: <strong>reuso e variabilidade</strong>.</p>
             <aside class="notes">
                 <ul>
                     <li>Contexto: o boom do m-learning e cada app sendo feito do zero.</li>
@@ -432,12 +432,12 @@ body.idle { cursor: none; }
         <!-- 5 -->
         <section class="slide" data-title="Capítulo 2 · Mapear">
             <div class="rail" data-at="2"></div>
-            <p class="label">capítulo 2 · início do doutorado</p>
+            <p class="label">Capítulo 2 · Início do doutorado</p>
             <h2>Antes de Construir, Mapear</h2>
             <p class="lead">Como a tecnologia apoia o ensino e a aprendizagem com línguas de sinais?</p>
-            <div class="bigstat frag"><b>185</b><span>estudos primários num mapeamento sistemático, com olhar nacional e internacional <span class="cites" data-refs="renote2020"></span></span></div>
-            <p class="note frag">O que encontramos: a maioria das soluções era software, só duas claramente multiplataforma, e <strong>faltavam padrões e boas práticas para reusar objetos de aprendizagem</strong>.</p>
-            <p class="insight frag">Essa lacuna virou a pergunta do doutorado.</p>
+            <div class="bigstat"><b>185</b><span>estudos primários num mapeamento sistemático, com olhar nacional e internacional <span class="cites" data-refs="renote2020"></span></span></div>
+            <p class="note">O que encontramos: a maioria das soluções era software, mas só duas eram claramente multiplataforma. E <strong>faltavam padrões e boas práticas para compartilhar e reusar objetos de aprendizagem</strong>, como aulas e vídeos.</p>
+            <p class="insight">Essa lacuna virou a pergunta do doutorado.</p>
             <aside class="notes">
                 <ul>
                     <li>Conte por que você escolheu acessibilidade e Libras.</li>
@@ -450,20 +450,20 @@ body.idle { cursor: none; }
         <!-- 6 -->
         <section class="slide" data-title="Capítulo 3 · Arquitetar">
             <div class="rail" data-at="3"></div>
-            <p class="label">capítulo 3 · doutorado</p>
+            <p class="label">Capítulo 3 · Doutorado</p>
             <h2>Speech2Learning</h2>
             <p class="lead">Uma arquitetura de software que usa reconhecimento de fala para tornar acessíveis objetos de aprendizagem com áudio, como as aulas em vídeo <span class="cites" data-refs="tese"></span>.</p>
             <div class="flow">
-                <div class="node"><span class="ic" aria-hidden="true">🎬</span><b>aula em vídeo</b><small>o objeto de aprendizagem</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">🎬</span><b>Aula em vídeo</b><small>O objeto de aprendizagem</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node key"><span class="ic" aria-hidden="true">🎙️</span><b>Serviço de fala</b><small>uma peça trocável</small></div>
+                <div class="node key"><span class="ic" aria-hidden="true">🎙️</span><b>Serviço de fala</b><small>Uma peça trocável</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node"><span class="ic" aria-hidden="true">📝</span><b>Texto com marcação de tempo</b><small>a ponte entre as partes</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">📝</span><b>Texto com marcação de tempo</b><small>A ponte entre as partes</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node"><span class="ic" aria-hidden="true">🤟</span><b>Acessibilidade</b><small>legenda, transcrição navegável, avatar de Libras</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">🤟</span><b>Acessibilidade</b><small>Legenda, transcrição navegável e avatar de Libras</small></div>
             </div>
-            <p class="note frag">Inspirada na Clean Architecture: a aplicação depende de uma <strong>interface</strong>, e o serviço de fala concreto é um detalhe que se troca.</p>
-            <p class="insight frag">Aqui as trilhas se encontram: os estudos de caso usaram aulas reais da DIO.</p>
+            <p class="note">Inspirada na Clean Architecture: a aplicação depende de uma <strong>interface</strong>, e cada serviço de fala vira um detalhe que se troca sem mexer no resto.</p>
+            <p class="insight">Aqui as trilhas se encontram: os estudos de caso usaram aulas reais da DIO.</p>
             <aside class="notes">
                 <ul>
                     <li>Explicar o desacoplamento com uma imagem: uma tomada onde você pluga qualquer provedor.</li>
@@ -476,16 +476,16 @@ body.idle { cursor: none; }
         <!-- 7 -->
         <section class="slide" data-title="Capítulo 4 · A Virada">
             <div class="rail" data-at="4"></div>
-            <p class="label">capítulo 4 · a virada</p>
+            <p class="label">Capítulo 4 · A virada</p>
             <h2>No Meio do Caminho, a IA Mudou o Jogo</h2>
             <div class="virada">
                 <div>
                     <p>Em 2022, a OpenAI lançou o <strong>Whisper</strong>, para fala, e o <strong>ChatGPT</strong>, para texto.</p>
-                    <p class="frag">Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper teve a maior média nos três idiomas.</p>
-                    <p class="insight frag">Como o serviço de fala era peça trocável, o novo modelo virou o padrão sem reescrever a arquitetura.</p>
+                    <p>Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper teve a maior média nos três idiomas.</p>
+                    <p class="insight">Como o serviço de fala era peça trocável, o novo modelo virou o padrão sem reescrever a arquitetura.</p>
                 </div>
-                <div class="bars frag" role="img" aria-label="Similaridade léxica média em português: OpenAI 0,67; Microsoft 0,59; IBM 0,58; Amazon 0,54; Google 0,52">
-                    <h3>similaridade léxica média (Jaccard) em português <span class="cites" data-refs="hicss2024"></span></h3>
+                <div class="bars" role="img" aria-label="Similaridade léxica média em português, índice de Jaccard de 0 a 1: OpenAI 0,67; Microsoft 0,59; IBM 0,58; Amazon 0,54; Google 0,52">
+                    <h3>Similaridade léxica média em português (índice de Jaccard, de 0 a 1) <span class="cites" data-refs="hicss2024"></span></h3>
                     <div class="bar best"><span>OpenAI</span><i style="width: 100%"></i><em>0,67</em></div>
                     <div class="bar"><span>Microsoft</span><i style="width: 88%"></i><em>0,59</em></div>
                     <div class="bar"><span>IBM</span><i style="width: 87%"></i><em>0,58</em></div>
@@ -508,15 +508,15 @@ body.idle { cursor: none; }
         <!-- 8 -->
         <section class="slide" data-title="Capítulo 5 · Ouvir Quem Entende">
             <div class="rail" data-at="5"></div>
-            <p class="label">capítulo 5 · tese e FIE 2026</p>
+            <p class="label">Capítulo 5 · Tese e FIE 2026</p>
             <h2 class="neq">Precisão <i>≠</i> Compreensão</h2>
             <p class="lead">A transcrição estava boa. Então levamos o player, com transcrição navegável e avatar de Libras, a dois intérpretes profissionais <span class="cites" data-refs="fie2026"></span>.</p>
             <div class="themes">
-                <div class="theme frag"><b>Barreira semântica</b><span>O avatar sinaliza palavra por palavra, na ordem do português, e sem a expressão facial que em Libras carrega gramática.</span></div>
-                <div class="theme frag"><b>Tecnologia transicional</b><span>Melhor que nada quando não há intérprete, mas não substitui um.</span></div>
-                <div class="theme frag"><b>Acessibilidade seletiva</b><span>Funciona para surdos oralizados ou bilíngues, e falha para quem tem a Libras como primeira ou única língua.</span></div>
+                <div class="theme"><b>Barreira semântica</b><span>O avatar sinaliza palavra por palavra, na ordem do português, e sem a expressão facial, que em Libras carrega gramática.</span></div>
+                <div class="theme"><b>Tecnologia transicional</b><span>Melhor que nada quando não há intérprete, mas não substitui um.</span></div>
+                <div class="theme"><b>Acessibilidade seletiva</b><span>Funciona para surdos oralizados ou bilíngues e falha para quem tem a Libras como primeira ou única língua.</span></div>
             </div>
-            <p class="insight frag">Uma métrica técnica boa não garante que a pessoa entendeu.</p>
+            <p class="insight">Uma métrica técnica boa não garante que a pessoa entendeu.</p>
             <aside class="notes">
                 <ul>
                     <li>A própria tese já registrava o limite: similaridade léxica pode não capturar nuances de sentido.</li>
@@ -530,22 +530,22 @@ body.idle { cursor: none; }
         <!-- 9 -->
         <section class="slide" data-title="A Tese Apontava os Agentes">
             <div class="rail" data-at="5"></div>
-            <p class="label">trabalhos futuros da tese</p>
+            <p class="label">Trabalhos futuros da tese</p>
             <h2>A Tese Terminava Apontando para os Agentes</h2>
             <p class="quote">“Agentes poderiam atuar em diversas camadas da arquitetura…”<cite>Tese, trabalhos futuros <span class="cites" data-refs="tese"></span></cite></p>
-            <div class="frag">
-            <p class="flow-cap">a hipótese do artigo de 2026 <span class="cites" data-refs="fie2026"></span></p>
+            <div>
+            <p class="flow-cap">A hipótese do artigo de 2026 <span class="cites" data-refs="fie2026"></span></p>
             <div class="flow">
-                <div class="node"><span class="ic" aria-hidden="true">📝</span><b>Texto</b><small>da transcrição</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">📝</span><b>Transcrição</b><small>O texto da aula</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node agent"><span class="ic" aria-hidden="true">🤖</span><b>Agente intermediário</b><small>contextualiza antes de sinalizar</small></div>
+                <div class="node agent"><span class="ic" aria-hidden="true">🤖</span><b>Agente intermediário</b><small>Contextualiza antes de sinalizar</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node"><span class="ic" aria-hidden="true">🤟</span><b>Avatar</b><small>menos tradução literal</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">🤟</span><b>Avatar</b><small>Menos tradução literal</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node key"><span class="ic" aria-hidden="true">👥</span><b>Validação humana</b><small>intérpretes e estudantes surdos</small></div>
+                <div class="node key"><span class="ic" aria-hidden="true">👥</span><b>Validação humana</b><small>Com intérpretes e estudantes surdos</small></div>
             </div>
             </div>
-            <p class="insight frag">Enquanto a pesquisa avançava com cuidado, a indústria chegou aos agentes primeiro.</p>
+            <p class="insight">Enquanto a pesquisa avançava com cuidado, a indústria chegou aos agentes primeiro.</p>
             <aside class="notes">
                 <ul>
                     <li>A hipótese do FIE 2026: um LLM que contextualiza o texto antes do avatar pode reduzir a tradução literal.</li>
@@ -558,16 +558,16 @@ body.idle { cursor: none; }
         <!-- 10 -->
         <section class="slide" data-title="Capítulo 6 · Agir">
             <div class="rail" data-at="6"></div>
-            <p class="label">capítulo 6 · indústria, hoje</p>
+            <p class="label">Capítulo 6 · Indústria, hoje</p>
             <h2>Na Indústria, Quatro Jeitos de Usar IA</h2>
             <div class="ways">
-                <div class="way frag"><span class="ic" aria-hidden="true">👂</span><h3>Transcrever</h3><p>A fala vira texto.</p></div>
-                <div class="way frag"><span class="ic" aria-hidden="true">✍️</span><h3>Escrever</h3><p>O prompt vira rascunho.</p></div>
-                <div class="way frag"><span class="ic" aria-hidden="true">🔗</span><h3>Encadear</h3><p>O pipeline segue passos fixos.</p></div>
-                <div class="way now frag"><span class="ic" aria-hidden="true">🤖</span><h3>Agir</h3><p>O agente decide os passos.</p></div>
+                <div class="way"><span class="ic" aria-hidden="true">👂</span><h3>Transcrever</h3><p>A fala vira texto.</p></div>
+                <div class="way"><span class="ic" aria-hidden="true">✍️</span><h3>Escrever</h3><p>O prompt vira rascunho.</p></div>
+                <div class="way"><span class="ic" aria-hidden="true">🔗</span><h3>Encadear</h3><p>O pipeline segue passos fixos.</p></div>
+                <div class="way now"><span class="ic" aria-hidden="true">🤖</span><h3>Agir</h3><p>O agente decide os passos.</p></div>
             </div>
-            <p class="note frag">Um pipeline segue um caminho definido no código. Um <strong>agente</strong> escolhe os próprios passos e ferramentas a partir do resultado de cada ação <span class="cites" data-refs="agents2024"></span>.</p>
-            <p class="note frag">O <strong>harness</strong> é o software em volta do modelo que roda esse ciclo: reúne contexto, age, verifica e repete. O Claude Code funciona sobre um harness assim <span class="cites" data-refs="sdk"></span>.</p>
+            <p class="note">A diferença está em quem decide. No pipeline, o caminho está escrito no código. No <strong>agente</strong>, o modelo escolhe os próprios passos e ferramentas a partir do resultado de cada ação <span class="cites" data-refs="agents2024"></span>.</p>
+            <p class="note">O <strong>harness</strong> é o software em volta do modelo que roda esse ciclo: reúne contexto, age, verifica e repete. O Claude Code funciona sobre um harness assim <span class="cites" data-refs="sdk"></span>.</p>
             <aside class="notes">
                 <ul>
                     <li>A mesma evolução, vivida na edtech e na consultoria.</li>
@@ -581,14 +581,14 @@ body.idle { cursor: none; }
         <!-- 11 -->
         <section class="slide" data-title="O Que a Pesquisa Ensinou à Prática">
             <div class="rail" data-at="6"></div>
-            <p class="label">o fio entre as trilhas</p>
+            <p class="label">O fio entre as trilhas</p>
             <h2>O Que a Pesquisa Ensinou à Prática</h2>
             <div class="bridge">
-                <div class="heads"><div class="head">na pesquisa</div><div></div><div class="head">com agentes, hoje</div></div>
-                <div class="row frag"><div class="src"><b>Reusar e variar</b><small>mestrado <span class="cites" data-refs="jucs2022"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>Skills: instruções e scripts reutilizáveis que o agente carrega quando a tarefa pede <span class="cites" data-refs="skills2025"></span>.</span></div></div>
-                <div class="row frag"><div class="src"><b>Desacoplar</b><small>Speech2Learning <span class="cites" data-refs="tese"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>O modelo é peça trocável. Regras, ferramentas e verificação ficam.</span></div></div>
-                <div class="row frag"><div class="src"><b>Medir com o seu conteúdo</b><small>HICSS 2024 <span class="cites" data-refs="hicss2024"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>Avaliar o modelo com o seu material antes de escalar.</span></div></div>
-                <div class="row frag"><div class="src"><b>Validar com quem entende</b><small>FIE 2026 <span class="cites" data-refs="fie2026"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>Uma pessoa no circuito em tudo que não tem volta, e revisão independente.</span></div></div>
+                <div class="heads"><div class="head">Na pesquisa</div><div></div><div class="head">Com agentes, hoje</div></div>
+                <div class="row"><div class="src"><b>Reusar e variar</b><small>Mestrado <span class="cites" data-refs="jucs2022"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>Skills: instruções e scripts reutilizáveis que o agente carrega quando a tarefa pede <span class="cites" data-refs="skills2025"></span>.</span></div></div>
+                <div class="row"><div class="src"><b>Desacoplar</b><small>Speech2Learning <span class="cites" data-refs="tese"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>O modelo vira peça trocável; regras, ferramentas e verificações permanecem.</span></div></div>
+                <div class="row"><div class="src"><b>Medir com o seu conteúdo</b><small>HICSS 2024 <span class="cites" data-refs="hicss2024"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>Antes de escalar, avalie o modelo com o seu próprio material.</span></div></div>
+                <div class="row"><div class="src"><b>Validar com quem entende</b><small>FIE 2026 <span class="cites" data-refs="fie2026"></span></small></div><div class="to" aria-hidden="true">→</div><div class="dst"><span>Uma pessoa aprova o que não tem volta, e quem revisa não é quem produziu.</span></div></div>
             </div>
             <aside class="notes">
                 <ul>
@@ -601,7 +601,7 @@ body.idle { cursor: none; }
         <!-- 12 -->
         <section class="slide" data-title="Hype ou Realidade?">
             <div class="rail" data-at="6"></div>
-            <p class="label">vote no chat antes de eu revelar</p>
+            <p class="label">Vote no chat antes de eu revelar</p>
             <h2>Hype ou Realidade?</h2>
             <div class="claims">
                 <div class="claim"><p>“A IA vai substituir quem ensina.”</p><span class="stamp mito frag">Mito</span></div>
@@ -623,24 +623,24 @@ body.idle { cursor: none; }
         <!-- 13 -->
         <section class="slide" data-title="Quem Ensina e Quem Aprende">
             <div class="rail" data-at="6"></div>
-            <p class="label">voltando à pergunta</p>
+            <p class="label">Voltando à pergunta</p>
             <h2>Para Quem Ensina e para Quem Aprende</h2>
             <div class="sides">
-                <div class="side frag">
+                <div class="side">
                     <h3>🧑‍🏫 Quem ensina</h3>
                     <p><b>Muda:</b> menos produção braçal, mais curadoria.</p>
                     <p><b class="warn">Cuidado:</b> validar o sentido vira parte do ofício.</p>
                 </div>
-                <div class="side frag">
+                <div class="side">
                     <h3>🧑‍🎓 Quem aprende</h3>
                     <p><b>Muda:</b> um mentor disponível a qualquer hora.</p>
-                    <p><b class="warn">Cuidado:</b> quem já sabe aproveita mais, e o atalho pode pular o esforço.</p>
+                    <p><b class="warn">Cuidado:</b> quem já sabe aproveita mais, e o atalho pode pular o esforço de aprender.</p>
                 </div>
             </div>
             <aside class="notes">
                 <ul>
                     <li>"Quem já sabe aproveita mais" é a acessibilidade seletiva da pesquisa, agora com agentes.</li>
-                    <li>Para quem aprende, o pedido que muda tudo: "me ajuda a destravar sem me dar a resposta".</li>
+                    <li>Para quem aprende, o pedido que muda tudo: "Me ajuda a destravar sem me dar a resposta".</li>
                 </ul>
             </aside>
         </section>
@@ -648,17 +648,17 @@ body.idle { cursor: none; }
         <!-- 14 -->
         <section class="slide next" data-title="Capítulo 7 · O Próximo Capítulo">
             <div class="rail" data-at="7"></div>
-            <p class="label">capítulo 7 · futuro</p>
+            <p class="label">Capítulo 7 · Futuro</p>
             <h2>O Próximo Capítulo</h2>
             <div class="sides">
-                <div class="side frag">
+                <div class="side">
                     <h3>🔬 Na pesquisa</h3>
                     <p>Ampliar a amostra, com um protocolo já aprovado pelo comitê de ética.</p>
-                    <div class="join frag">
+                    <div class="join">
                         <a class="qr" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code do formulário da pesquisa" shape-rendering="crispEdges" viewBox="0 0 37 37"><path fill="#fff" d="M0 0h37v37h-37z"/><path stroke="#0b1020" d="M4 4.5h7m1 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h7m-29 1h1m5 0h1m1 0h1m3 0h2m4 0h1m1 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h2m3 0h1m5 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h4m1 0h1m2 0h2m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h3m2 0h2m1 0h2m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h4m5 0h1m1 0h1m-20 1h1m1 0h2m1 0h3m3 0h1m1 0h1m1 0h1m2 0h3m1 0h1m2 0h1m1 0h2m-29 1h1m2 0h2m3 0h1m2 0h4m2 0h2m1 0h1m1 0h3m3 0h1m-28 1h6m2 0h1m1 0h1m1 0h1m2 0h1m9 0h2m-28 1h1m2 0h2m2 0h1m1 0h3m3 0h2m1 0h1m2 0h1m1 0h2m3 0h1m-28 1h3m2 0h1m1 0h1m5 0h4m1 0h1m1 0h1m3 0h2m-24 1h3m2 0h2m1 0h2m1 0h1m1 0h4m2 0h1m3 0h3m-28 1h1m1 0h2m1 0h2m5 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h3m-29 1h1m3 0h1m2 0h2m2 0h1m2 0h3m4 0h2m1 0h1m2 0h1m-28 1h1m1 0h1m1 0h1m1 0h7m1 0h1m1 0h1m2 0h3m2 0h2m1 0h1m-26 1h1m1 0h2m1 0h1m1 0h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h3m-28 1h1m1 0h5m1 0h2m3 0h4m1 0h1m1 0h1m2 0h1m2 0h1m-23 1h1m2 0h1m2 0h2m1 0h7m1 0h2m1 0h1m1 0h1m-26 1h2m1 0h5m1 0h5m2 0h2m1 0h7m-19 1h2m2 0h1m3 0h1m3 0h1m3 0h5m-29 1h7m1 0h2m4 0h1m2 0h4m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m3 0h4m1 0h3m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h1m1 0h1m5 0h1m2 0h5m1 0h2m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h7m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m2 0h2m1 0h3m4 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m2 0h1m1 0h1m-28 1h7m1 0h3m2 0h3m2 0h3m6 0h1"/></svg></a>
                         <div>
-                            <b>Participe da pesquisa</b>
-                            <span>Buscamos pessoas ouvintes fluentes em português e Libras (TILS, CODAs e ouvintes sinalizantes) para uma entrevista por Google Meet de até 30 minutos.</span>
+                            <b>É ouvinte e fluente em português e Libras? Participe.</b>
+                            <span>Buscamos TILS, CODAs e ouvintes sinalizantes para uma entrevista por Google Meet de até 30 minutos. O formulário é só para esse público.</span>
                             <a class="url" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a>
                             <small>Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.</small>
                         </div>
@@ -666,17 +666,17 @@ body.idle { cursor: none; }
                     <p>Player v2 aberto para novas rodadas.</p>
                     <p>Depois, levar a hipótese do agente intermediário à validação com intérpretes e estudantes surdos <span class="cites" data-refs="fie2026"></span>.</p>
                 </div>
-                <div class="side frag">
+                <div class="side">
                     <h3>🏭 Na indústria</h3>
                     <p>Agentes com harness e uma pessoa no circuito.</p>
                     <p>Medir aprendizado, e não só produtividade.</p>
                     <p>Formatos abertos, para não depender de um fornecedor.</p>
                 </div>
             </div>
-            <p class="insight frag">As trilhas seguem juntas: a indústria acelera, a pesquisa confere.</p>
+            <p class="insight">As trilhas seguem juntas: a indústria acelera, a pesquisa confere.</p>
             <aside class="notes">
                 <ul>
-                    <li><strong>📋 Quando o chamado aparecer, cole o link no chat:</strong><div>https://forms.gle/hkWZNrKs1uwhjwUS8</div></li>
+                    <li><strong>📋 Cole no chat agora e diga que é só para esse público:</strong><div>Pesquisa Speech2Learning, só para pessoas ouvintes fluentes em português e Libras (TILS, CODAs e ouvintes sinalizantes): https://forms.gle/hkWZNrKs1uwhjwUS8</div></li>
                     <li>O player v2 traz ajustes pedidos pelos intérpretes e mantém, como decisões de projeto, dois achados: a transcrição como leitura principal e o avatar sob demanda.</li>
                     <li>A amostra ampliada inclui intérpretes, filhos ouvintes de pais surdos e ouvintes sinalizantes.</li>
                     <li>Se perguntarem: na forma mais simples, o agente intermediário seria um passo fixo, como o "encadear" do slide 10. Vira agente de fato se passar a decidir os próprios passos.</li>
@@ -686,18 +686,18 @@ body.idle { cursor: none; }
 
         <!-- 15 -->
         <section class="slide no-rail" data-title="Para Levar">
-            <p class="label">para levar</p>
+            <p class="label">Para levar</p>
             <div class="takeaways">
-                <div class="takeaway frag"><code>01</code><span>A engenharia continua valendo: <strong>reusar, desacoplar, medir e validar.</strong></span></div>
-                <div class="takeaway frag"><code>02</code><span>Precisão técnica não garante aprendizado. <strong>Valide com quem aprende e com quem entende do assunto.</strong></span></div>
-                <div class="takeaway frag"><code>03</code><span>A IA apoia quem ensina e quem aprende. <strong>A decisão continua humana.</strong></span></div>
+                <div class="takeaway"><code>01</code><span>A engenharia continua valendo: <strong>reusar, desacoplar, medir e validar.</strong></span></div>
+                <div class="takeaway"><code>02</code><span>Precisão técnica não garante aprendizado. <strong>Valide com quem aprende e com quem entende do assunto.</strong></span></div>
+                <div class="takeaway"><code>03</code><span>A IA apoia quem ensina e quem aprende. <strong>A decisão continua humana.</strong></span></div>
             </div>
             <aside class="notes"><ul><li>Falar devagar. Abrir para perguntas em seguida.</li></ul></aside>
         </section>
 
         <!-- 16 -->
         <section class="slide no-rail" data-title="Referências">
-            <p class="label">referências</p>
+            <p class="label">Referências</p>
             <h2>Para Se Aprofundar</h2>
             <ol class="biblio" id="biblio"></ol>
             <aside class="notes"><ul><li>Passar rápido. Todos os links também estão no README do repositório.</li></ul></aside>
@@ -708,16 +708,17 @@ body.idle { cursor: none; }
             <h1>Obrigado!</h1>
             <p class="handle">@falvojr</p>
             <p class="lead">Slides e referências: <a href="https://falvojr.github.io/ensinar-e-aprender-com-ia" target="_blank" rel="noopener">falvojr.github.io/ensinar-e-aprender-com-ia</a></p>
-            <p class="lead">Participe da pesquisa: <a href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a></p>
-            <aside class="notes"><ul><li>Perguntas. Provocação reserva: "que tarefa você daria hoje para um agente, e qual nunca daria?"</li></ul></aside>
+            <p class="lead">Pesquisa Speech2Learning: <a href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a></p>
+            <p class="audience"><strong>Só para pessoas ouvintes fluentes em português e Libras</strong>: TILS, CODAs e ouvintes sinalizantes.</p>
+            <aside class="notes"><ul><li>Se repetir o link da pesquisa no chat, repita também que é só para ouvintes fluentes em português e Libras.</li><li>Perguntas. Provocação reserva: "Que tarefa você daria hoje para um agente, e qual nunca daria?"</li></ul></aside>
         </section>
 
     </div>
     <script>
         (function () {
             const chapters = [
-                ['reusar', 'mestrado'], ['mapear', '2020'], ['arquitetar', 'doutorado'], ['medir', '2022 a 2024'],
-                ['ouvir', '2024 a 2026'], ['agir', 'hoje'], ['próximo', 'futuro']
+                ['Reusar', 'Mestrado'], ['Mapear', '2020'], ['Arquitetar', 'Doutorado'], ['Medir', '2022 a 2024'],
+                ['Ouvir', '2024 a 2026'], ['Agir', 'Hoje'], ['Próximo', 'Futuro']
             ];
             document.querySelectorAll('.rail').forEach(function (rail) {
                 const at = Number(rail.dataset.at);
@@ -813,7 +814,7 @@ body.idle { cursor: none; }
     </script>
     <script>
 // Motor dos slides.
-// Teclas: → Espaço PageDown avançam (revelam fragmentos antes); ← PageUp voltam;
+// Teclas: → Espaço PageDown avançam (no slide 12, revelam os carimbos antes); ← PageUp voltam;
 // Home e End; F tela cheia; N notas na tela; P notas do apresentador em outra janela.
 (function () {
     const stage = document.querySelector('.stage');

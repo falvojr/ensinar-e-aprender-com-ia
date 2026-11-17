@@ -10,7 +10,7 @@ Muito se fala em agentes de IA, mas o que muda na prática para quem ensina e pa
 
 Um único `index.html`, sem build. Para apresentar:
 
-- **→, Espaço ou PageDown** revelam o próximo item e depois avançam; **←** volta.
+- **→, Espaço ou PageDown** avançam; **←** volta. No slide "Hype ou Realidade?", as setas revelam um carimbo de cada vez.
 - **P** abre as notas do apresentador em outra janela, com cronômetro. Deixe essa janela no segundo monitor e compartilhe só a dos slides.
 - **N** mostra as notas na própria tela, para ensaiar.
 - **F** liga a tela cheia. **Ctrl+P** gera um PDF com um slide por página, como plano B offline.
@@ -44,7 +44,7 @@ Numeradas na ordem em que aparecem nos slides. Nos slides, cada número entre co
 
 ## 🔗 Links
 
-- [Participe da pesquisa Speech2Learning](https://forms.gle/hkWZNrKs1uwhjwUS8): buscamos pessoas ouvintes fluentes em português e Libras (TILS, CODAs e ouvintes sinalizantes) para uma entrevista por Google Meet de até 30 minutos. Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.
+- [Participe da pesquisa Speech2Learning](https://forms.gle/hkWZNrKs1uwhjwUS8): só para pessoas ouvintes fluentes em português e Libras (TILS, CODAs e ouvintes sinalizantes), em entrevista por Google Meet de até 30 minutos. Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.
 - [IA e Carreiras do Futuro](https://github.com/falvojr/dio-carreiras-futuro), a palestra anterior
 
 ## 🛠️ Sobre o Desenvolvimento
