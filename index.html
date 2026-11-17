@@ -436,13 +436,13 @@ body.idle { cursor: none; }
             <h2>Antes de Construir, Mapear</h2>
             <p class="lead">Como a tecnologia apoia o ensino e a aprendizagem com línguas de sinais?</p>
             <div class="bigstat frag"><b>185</b><span>estudos primários num mapeamento sistemático, com olhar nacional e internacional <span class="cites" data-refs="renote2020"></span></span></div>
-            <p class="note frag">O que encontramos: muitas soluções pontuais (tradutores, dicionários, avatares) e <strong>poucos ambientes integrados</strong>.</p>
+            <p class="note frag">O que encontramos: a maioria das soluções era software, só duas claramente multiplataforma, e <strong>faltavam padrões e boas práticas para reusar objetos de aprendizagem</strong>.</p>
             <p class="insight frag">Essa lacuna virou a pergunta do doutorado.</p>
             <aside class="notes">
                 <ul>
                     <li>Conte por que você escolheu acessibilidade e Libras.</li>
                     <li>Perspectiva nacional (SBIE), internacional (FIE) e a versão estendida em periódico (RENOTE).</li>
-                    <li>Transição: se faltam ambientes integrados, a resposta de um engenheiro de software é uma arquitetura.</li>
+                    <li>Transição: se faltam padrões para reusar, a resposta de um engenheiro de software é uma arquitetura.</li>
                 </ul>
             </aside>
         </section>
@@ -452,9 +452,9 @@ body.idle { cursor: none; }
             <div class="rail" data-at="3"></div>
             <p class="label">capítulo 3 · doutorado</p>
             <h2>Speech2Learning</h2>
-            <p class="lead">Uma arquitetura de software que usa reconhecimento de fala para tornar acessíveis as aulas em vídeo <span class="cites" data-refs="tese"></span>.</p>
+            <p class="lead">Uma arquitetura de software que usa reconhecimento de fala para tornar acessíveis objetos de aprendizagem com áudio, como as aulas em vídeo <span class="cites" data-refs="tese"></span>.</p>
             <div class="flow">
-                <div class="node"><span class="ic" aria-hidden="true">🎬</span><b>Aula em vídeo</b><small>o objeto de aprendizagem</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">🎬</span><b>aula em vídeo</b><small>o objeto de aprendizagem</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
                 <div class="node key"><span class="ic" aria-hidden="true">🎙️</span><b>Serviço de fala</b><small>uma peça trocável</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
@@ -481,11 +481,11 @@ body.idle { cursor: none; }
             <div class="virada">
                 <div>
                     <p>Em 2022, a OpenAI lançou o <strong>Whisper</strong>, para fala, e o <strong>ChatGPT</strong>, para texto.</p>
-                    <p class="frag">Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper ficou na frente nos três idiomas.</p>
+                    <p class="frag">Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper teve a maior média nos três idiomas.</p>
                     <p class="insight frag">Como o serviço de fala era peça trocável, o novo modelo virou o padrão sem reescrever a arquitetura.</p>
                 </div>
                 <div class="bars frag" role="img" aria-label="Similaridade léxica média em português: OpenAI 0,67; Microsoft 0,59; IBM 0,58; Amazon 0,54; Google 0,52">
-                    <h3>similaridade léxica média em português <span class="cites" data-refs="hicss2024"></span></h3>
+                    <h3>similaridade léxica média (Jaccard) em português <span class="cites" data-refs="hicss2024"></span></h3>
                     <div class="bar best"><span>OpenAI</span><i style="width: 100%"></i><em>0,67</em></div>
                     <div class="bar"><span>Microsoft</span><i style="width: 88%"></i><em>0,59</em></div>
                     <div class="bar"><span>IBM</span><i style="width: 87%"></i><em>0,58</em></div>
@@ -496,7 +496,8 @@ body.idle { cursor: none; }
             <aside class="notes">
                 <ul>
                     <li>O doutorado começou antes da IA generativa. A virada aconteceu com o trabalho em andamento.</li>
-                    <li>O Whisper usa a mesma arquitetura do ChatGPT, os Transformers. A arquitetura é de 2017; o que 2022 trouxe foram modelos grandes, treinados em escala, abertos ao público.</li>
+                    <li>Se perguntarem de estatística: a diferença entre os serviços foi significativa só em inglês (ANOVA). Em português e espanhol, a vantagem do Whisper é pequena.</li>
+                    <li>O Whisper usa a mesma família de arquitetura do ChatGPT, os Transformers. A arquitetura é de 2017; o que 2022 trouxe foram modelos grandes, treinados em escala, abertos ao público.</li>
                     <li>O estudo de caso também virou um artigo no IEEE FIE 2024, com a triangulação completa.</li>
                     <li>Três fontes de evidência: similaridade léxica, percepção dos estudantes e análise documental (triangulação).</li>
                     <li>Lição que vale para agentes hoje: teste com o seu conteúdo, não com o anúncio.</li>
@@ -509,17 +510,18 @@ body.idle { cursor: none; }
             <div class="rail" data-at="5"></div>
             <p class="label">capítulo 5 · tese e FIE 2026</p>
             <h2 class="neq">Precisão <i>≠</i> Compreensão</h2>
-            <p class="lead">A transcrição estava boa. Então levamos o player, com transcrição navegável e avatar de Libras, a intérpretes profissionais <span class="cites" data-refs="fie2026"></span>.</p>
+            <p class="lead">A transcrição estava boa. Então levamos o player, com transcrição navegável e avatar de Libras, a dois intérpretes profissionais <span class="cites" data-refs="fie2026"></span>.</p>
             <div class="themes">
                 <div class="theme frag"><b>Barreira semântica</b><span>O avatar sinaliza palavra por palavra, na ordem do português, e sem a expressão facial que em Libras carrega gramática.</span></div>
                 <div class="theme frag"><b>Tecnologia transicional</b><span>Melhor que nada quando não há intérprete, mas não substitui um.</span></div>
-                <div class="theme frag"><b>Acessibilidade seletiva</b><span>Funciona para surdos bilíngues, que usam o texto em português para entender o avatar.</span></div>
+                <div class="theme frag"><b>Acessibilidade seletiva</b><span>Funciona para surdos oralizados ou bilíngues, e falha para quem tem a Libras como primeira ou única língua.</span></div>
             </div>
             <p class="insight frag">Uma métrica técnica boa não garante que a pessoa entendeu.</p>
             <aside class="notes">
                 <ul>
                     <li>A própria tese já registrava o limite: similaridade léxica pode não capturar nuances de sentido.</li>
                     <li>O FIE 2026 refez a análise das entrevistas com um protocolo formal (Martinelli et al.): 60 códigos viraram 38 e, depois, três temas.</li>
+                    <li>Amostra pequena: dois intérpretes de uma mesma empresa. O artigo trata os temas como hipóteses bem fundamentadas, e não como conclusões gerais. Por isso a amostra vai crescer.</li>
                     <li>Sem expressão facial, que em Libras carrega gramática, os sinais aparecem e o sentido se perde.</li>
                 </ul>
             </aside>
@@ -530,7 +532,7 @@ body.idle { cursor: none; }
             <div class="rail" data-at="5"></div>
             <p class="label">trabalhos futuros da tese</p>
             <h2>A Tese Terminava Apontando para os Agentes</h2>
-            <p class="quote">“Agentes poderiam atuar em diversas camadas da arquitetura.”<cite>Tese, trabalhos futuros <span class="cites" data-refs="tese"></span></cite></p>
+            <p class="quote">“Agentes poderiam atuar em diversas camadas da arquitetura…”<cite>Tese, trabalhos futuros <span class="cites" data-refs="tese"></span></cite></p>
             <div class="frag">
             <p class="flow-cap">a hipótese do artigo de 2026 <span class="cites" data-refs="fie2026"></span></p>
             <div class="flow">
@@ -656,7 +658,7 @@ body.idle { cursor: none; }
                         <a class="qr" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code do formulário da pesquisa" shape-rendering="crispEdges" viewBox="0 0 37 37"><path fill="#fff" d="M0 0h37v37h-37z"/><path stroke="#0b1020" d="M4 4.5h7m1 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h7m-29 1h1m5 0h1m1 0h1m3 0h2m4 0h1m1 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h2m3 0h1m5 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h4m1 0h1m2 0h2m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h3m2 0h2m1 0h2m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h4m5 0h1m1 0h1m-20 1h1m1 0h2m1 0h3m3 0h1m1 0h1m1 0h1m2 0h3m1 0h1m2 0h1m1 0h2m-29 1h1m2 0h2m3 0h1m2 0h4m2 0h2m1 0h1m1 0h3m3 0h1m-28 1h6m2 0h1m1 0h1m1 0h1m2 0h1m9 0h2m-28 1h1m2 0h2m2 0h1m1 0h3m3 0h2m1 0h1m2 0h1m1 0h2m3 0h1m-28 1h3m2 0h1m1 0h1m5 0h4m1 0h1m1 0h1m3 0h2m-24 1h3m2 0h2m1 0h2m1 0h1m1 0h4m2 0h1m3 0h3m-28 1h1m1 0h2m1 0h2m5 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h3m-29 1h1m3 0h1m2 0h2m2 0h1m2 0h3m4 0h2m1 0h1m2 0h1m-28 1h1m1 0h1m1 0h1m1 0h7m1 0h1m1 0h1m2 0h3m2 0h2m1 0h1m-26 1h1m1 0h2m1 0h1m1 0h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h3m-28 1h1m1 0h5m1 0h2m3 0h4m1 0h1m1 0h1m2 0h1m2 0h1m-23 1h1m2 0h1m2 0h2m1 0h7m1 0h2m1 0h1m1 0h1m-26 1h2m1 0h5m1 0h5m2 0h2m1 0h7m-19 1h2m2 0h1m3 0h1m3 0h1m3 0h5m-29 1h7m1 0h2m4 0h1m2 0h4m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m3 0h4m1 0h3m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h1m1 0h1m5 0h1m2 0h5m1 0h2m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h7m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m2 0h2m1 0h3m4 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m2 0h1m1 0h1m-28 1h7m1 0h3m2 0h3m2 0h3m6 0h1"/></svg></a>
                         <div>
                             <b>Participe da pesquisa</b>
-                            <span>Buscamos pessoas ouvintes fluentes em Português e Libras (TILS, CODAs e ouvintes sinalizantes) para uma entrevista por Google Meet de até 30 minutos.</span>
+                            <span>Buscamos pessoas ouvintes fluentes em português e Libras (TILS, CODAs e ouvintes sinalizantes) para uma entrevista por Google Meet de até 30 minutos.</span>
                             <a class="url" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a>
                             <small>Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.</small>
                         </div>
@@ -675,7 +677,7 @@ body.idle { cursor: none; }
             <aside class="notes">
                 <ul>
                     <li><strong>📋 Quando o chamado aparecer, cole o link no chat:</strong><div>https://forms.gle/hkWZNrKs1uwhjwUS8</div></li>
-                    <li>O player v2 já incorporou dois achados: a transcrição como leitura principal e o avatar sob demanda.</li>
+                    <li>O player v2 traz ajustes pedidos pelos intérpretes e mantém, como decisões de projeto, dois achados: a transcrição como leitura principal e o avatar sob demanda.</li>
                     <li>A amostra ampliada inclui intérpretes, filhos ouvintes de pais surdos e ouvintes sinalizantes.</li>
                     <li>Se perguntarem: na forma mais simples, o agente intermediário seria um passo fixo, como o "encadear" do slide 10. Vira agente de fato se passar a decidir os próprios passos.</li>
                 </ul>
@@ -733,8 +735,8 @@ body.idle { cursor: none; }
         (function () {
             // Só referências reais, conferidas na fonte: a tese, os PDFs dos artigos e as páginas originais.
             const REFS = {
-                jucs2022: { a: 'FalvoJr et al.', t: 'Variability-based Improvement of M-Learning Applications Development', v: 'J.UCS', y: '2022', url: 'https://doi.org/10.3897/jucs.90663',
-                    authors: 'V. FalvoJr, A. S. Marcolino, N. F. Duarte Filho, E. OliveiraJr e E. F. Barbosa', venue: 'Journal of Universal Computer Science (J.UCS)' },
+                jucs2022: { a: 'FalvoJr et al.', t: 'Development and Evaluation of a Software Product Line for M-Learning Applications', v: 'J.UCS', y: '2022', url: 'https://doi.org/10.3897/jucs.90663',
+                    authors: 'V. FalvoJr, A. S. Marcolino, N. F. Duarte Filho, E. OliveiraJr e E. F. Barbosa', venue: 'Journal of Universal Computer Science (J.UCS), v. 28, n. 10' },
                 renote2020: { a: 'FalvoJr et al.', t: 'Tecnologias Aplicadas ao Ensino e Aprendizagem com Línguas de Sinais: Um Mapeamento Sistemático Sob as Perspectivas Nacional e Internacional', v: 'RENOTE', y: '2020', url: 'https://doi.org/10.22456/1679-1916.110217',
                     authors: 'V. FalvoJr, C. Martins Falvo, L. P. Scatalon e E. F. Barbosa', venue: 'Revista Novas Tecnologias na Educação (RENOTE), v. 18, n. 2' },
                 tese: { a: 'FalvoJr', t: 'Speech2Learning: Uma Arquitetura de Software Baseada em Reconhecimento de Fala para Promover a Acessibilidade de Objetos de Aprendizagem', v: 'Tese, ICMC-USP', y: '2024', url: 'https://doi.org/10.11606/T.55.2024.tde-15012025-095523',
@@ -745,7 +747,7 @@ body.idle { cursor: none; }
                     authors: 'V. FalvoJr, T. C. Valverde, F. S. Oliveira, C. H. Martins Falvo, A. S. Marcolino e E. F. Barbosa', venue: 'IEEE Frontiers in Education Conference (FIE)' },
                 agents2024: { a: 'Anthropic', t: 'Building effective agents', v: 'Engineering', y: 'dez. 2024', url: 'https://www.anthropic.com/engineering/building-effective-agents',
                     authors: 'Anthropic', venue: 'Engineering' },
-                sdk: { a: 'Anthropic', t: 'Building agents with the Claude Agent SDK', v: 'Engineering', url: 'https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk',
+                sdk: { a: 'Anthropic', t: 'Building agents with the Claude Agent SDK', v: 'Engineering', y: 'set. 2025', url: 'https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk',
                     authors: 'Anthropic', venue: 'Engineering' },
                 skills2025: { a: 'Anthropic', t: 'Equipping agents for the real world with Agent Skills', v: 'Engineering', y: 'out. 2025', url: 'https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills',
                     authors: 'Anthropic', venue: 'Engineering' }
