@@ -21,7 +21,7 @@ Duas trilhas, a pesquisa em Engenharia de Software aplicada à educação e a at
 
 1. **Reusar** (mestrado, 2012 a 2015): como construir apps de aprendizagem móvel sem começar do zero? Uma linha de produto de software.
 2. **Mapear** (2020): 185 estudos sobre tecnologia no ensino com línguas de sinais mostram que só duas soluções eram claramente multiplataforma e que faltavam padrões e boas práticas para reusar objetos de aprendizagem.
-3. **Arquitetar** (doutorado): a Speech2Learning, uma arquitetura que usa reconhecimento de fala para tornar acessíveis objetos de aprendizagem com áudio, como aulas em vídeo, com o serviço de fala como peça trocável.
+3. **Arquitetar** (doutorado, 2019 a 2024): a Speech2Learning, uma arquitetura que usa reconhecimento de fala para tornar acessíveis objetos de aprendizagem com áudio, como aulas em vídeo, com o serviço de fala como peça trocável.
 4. **Medir** (2022 a 2024): no meio do caminho chegam o Whisper e o ChatGPT. Entre cinco serviços testados com aulas reais, o Whisper tem a maior média e vira o padrão sem reescrever a arquitetura.
 5. **Ouvir** (2024 a 2026): dois intérpretes de Libras apontam que precisão não é compreensão. A tese termina apontando para agentes de IA na arquitetura.
 6. **Agir** (hoje): na indústria, de transcrever a escrever, encadear e agir com agentes e harness. O que a pesquisa ensinou à prática: reusar, desacoplar, medir e validar.
