@@ -49,10 +49,10 @@ Numeradas na ordem em que aparecem nos slides. Nos slides, cada número entre co
 
 ## 🛠️ Sobre o Desenvolvimento
 
-Estrutura, conteúdo e design dos slides foram construídos com Claude Code (Claude Opus 5.5), a partir da tese, dos artigos e da palestra anterior. Os conceitos de agente, harness e skill seguem as definições das referências 6 a 8. Antes da versão final vieram três propostas com ângulos diferentes, que ficaram em [`propostas/`](propostas/) para quem quiser ver o processo. Cada número dos slides foi conferido na fonte antes de entrar.
+Estrutura, conteúdo e design dos slides foram construídos com Claude Code (Claude Opus 5.5), a partir da tese, dos artigos e da palestra anterior. Os conceitos de agente, harness e skill seguem as definições das referências 6 a 8. Cada número dos slides foi conferido na fonte antes de entrar.
 
 ```
 ensinar-e-aprender-com-ia/
 ├── index.html    # Slides, estilos, notas do apresentador e navegação
-└── propostas/    # As propostas que levaram à versão final
+└── README.md     # Resumo, roteiro e referências
 ```
