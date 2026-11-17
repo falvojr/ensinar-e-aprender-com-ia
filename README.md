@@ -44,7 +44,7 @@ Numeradas na ordem em que aparecem nos slides. Nos slides, cada número entre co
 
 ## 🔗 Links
 
-- [Participe da pesquisa Speech2Learning](https://forms.gle/hkWZNrKs1uwhjwUS8): só para pessoas ouvintes fluentes em português e Libras (TILS, CODAs e ouvintes sinalizantes), em entrevista por Google Meet de até 30 minutos. Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.
+- [Participe da pesquisa Speech2Learning](https://forms.gle/hkWZNrKs1uwhjwUS8): só para pessoas ouvintes fluentes em português e Libras (intérpretes de Libras, filhos ouvintes de pais surdos e outras pessoas ouvintes que usam Libras), em entrevista por Google Meet de até 30 minutos. Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.
 - [IA e Carreiras do Futuro](https://github.com/falvojr/dio-carreiras-futuro), a palestra anterior
 
 ## 🛠️ Sobre o Desenvolvimento
