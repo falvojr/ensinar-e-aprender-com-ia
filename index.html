@@ -282,9 +282,20 @@ body.idle { cursor: none; }
         .side p b.warn { color: var(--warn); }
 
         /* Próximo capítulo */
-        .next h3 { font: 700 34px var(--display); margin-bottom: 16px; }
-        .next .side p { font-size: 24px; line-height: 1.45; color: var(--muted); margin-bottom: 12px; }
+        .next .sides { grid-template-columns: 1.3fr 0.7fr; }
+        .next .side { padding: 22px 30px; }
+        .next h3 { font: 700 34px var(--display); margin-bottom: 10px; }
+        .next .side p { font-size: 22px; line-height: 1.45; color: var(--muted); margin-bottom: 8px; }
         .next .side p::before { content: "→ "; color: var(--accent); font-weight: 700; }
+        .next .insight { margin-top: 18px; }
+        /* Chamado da pesquisa: QR escuro sobre branco, porque nem todo leitor lê QR invertido */
+        .next .join { display: grid; grid-template-columns: 156px 1fr; gap: 20px; align-items: center; margin: 0 0 10px; padding: 14px 18px 14px 14px; border-radius: 16px; border: 2px dashed var(--accent); background: rgba(45, 212, 191, 0.08); }
+        .next .join .qr { display: block; width: 156px; height: 156px; border-radius: 10px; overflow: hidden; background: #fff; }
+        .next .join .qr svg { display: block; width: 100%; height: 100%; }
+        .next .join b { display: block; font: 700 23px var(--display); color: var(--text); margin-bottom: 4px; }
+        .next .join span { display: block; font-size: 18px; line-height: 1.4; color: var(--muted); }
+        .next .join .url { display: inline-block; margin-top: 6px; font: 600 18px var(--mono); color: var(--accent); text-underline-offset: 4px; }
+        .next .join small { display: block; margin-top: 4px; font: 500 14px var(--mono); color: var(--soft); }
 
         /* Para levar */
         .takeaways { display: flex; flex-direction: column; gap: 26px; }
@@ -326,6 +337,7 @@ body.idle { cursor: none; }
         .thanks h1 { font-size: 120px; }
         .thanks .handle { font: 600 32px var(--mono); color: var(--accent); margin-top: 18px; }
         .thanks .lead { margin-top: 40px; }
+        .thanks .lead + .lead { margin-top: 12px; }
         .thanks .lead a { color: var(--text); text-underline-offset: 6px; }
     </style>
 </head>
@@ -639,7 +651,16 @@ body.idle { cursor: none; }
                     <h3>🔬 Na pesquisa</h3>
                     <p>Testar o agente intermediário para Libras com intérpretes e Estudantes surdos <span class="cites" data-refs="fie2026"></span>.</p>
                     <p>Ampliar a amostra, com um protocolo já aprovado pelo comitê de ética.</p>
-                    <p><a href="https://falvojr.github.io/speech2learning/player/v2" target="_blank" rel="noopener" style="color: var(--text);">Player v2</a> aberto para novas rodadas.</p>
+                    <div class="join frag">
+                        <a class="qr" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code do formulário da pesquisa" shape-rendering="crispEdges" viewBox="0 0 37 37"><path fill="#fff" d="M0 0h37v37h-37z"/><path stroke="#0b1020" d="M4 4.5h7m1 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h7m-29 1h1m5 0h1m1 0h1m3 0h2m4 0h1m1 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h2m3 0h1m5 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h4m1 0h1m2 0h2m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h3m2 0h2m1 0h2m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h4m5 0h1m1 0h1m-20 1h1m1 0h2m1 0h3m3 0h1m1 0h1m1 0h1m2 0h3m1 0h1m2 0h1m1 0h2m-29 1h1m2 0h2m3 0h1m2 0h4m2 0h2m1 0h1m1 0h3m3 0h1m-28 1h6m2 0h1m1 0h1m1 0h1m2 0h1m9 0h2m-28 1h1m2 0h2m2 0h1m1 0h3m3 0h2m1 0h1m2 0h1m1 0h2m3 0h1m-28 1h3m2 0h1m1 0h1m5 0h4m1 0h1m1 0h1m3 0h2m-24 1h3m2 0h2m1 0h2m1 0h1m1 0h4m2 0h1m3 0h3m-28 1h1m1 0h2m1 0h2m5 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h3m-29 1h1m3 0h1m2 0h2m2 0h1m2 0h3m4 0h2m1 0h1m2 0h1m-28 1h1m1 0h1m1 0h1m1 0h7m1 0h1m1 0h1m2 0h3m2 0h2m1 0h1m-26 1h1m1 0h2m1 0h1m1 0h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h3m-28 1h1m1 0h5m1 0h2m3 0h4m1 0h1m1 0h1m2 0h1m2 0h1m-23 1h1m2 0h1m2 0h2m1 0h7m1 0h2m1 0h1m1 0h1m-26 1h2m1 0h5m1 0h5m2 0h2m1 0h7m-19 1h2m2 0h1m3 0h1m3 0h1m3 0h5m-29 1h7m1 0h2m4 0h1m2 0h4m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m3 0h4m1 0h3m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h1m1 0h1m5 0h1m2 0h5m1 0h2m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h7m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m2 0h2m1 0h3m4 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m2 0h1m1 0h1m-28 1h7m1 0h3m2 0h3m2 0h3m6 0h1"/></svg></a>
+                        <div>
+                            <b>Participe da pesquisa</b>
+                            <span>Buscamos pessoas ouvintes fluentes em Português e Libras (TILS, CODAs e ouvintes sinalizantes) para uma entrevista por Google Meet de até 30 minutos.</span>
+                            <a class="url" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a>
+                            <small>Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.</small>
+                        </div>
+                    </div>
+                    <p>Player v2 aberto para novas rodadas.</p>
                 </div>
                 <div class="side frag">
                     <h3>🏭 Na indústria</h3>
@@ -651,6 +672,7 @@ body.idle { cursor: none; }
             <p class="insight frag">As trilhas seguem juntas: a indústria acelera, a pesquisa confere.</p>
             <aside class="notes">
                 <ul>
+                    <li><strong>📋 Quando o chamado aparecer, cole o link no chat:</strong><div>https://forms.gle/hkWZNrKs1uwhjwUS8</div></li>
                     <li>O player v2 já incorporou dois achados: a transcrição como leitura principal e o avatar sob demanda.</li>
                     <li>A amostra ampliada inclui intérpretes, filhos ouvintes de pais surdos e ouvintes sinalizantes.</li>
                 </ul>
@@ -681,6 +703,7 @@ body.idle { cursor: none; }
             <h1>Obrigado!</h1>
             <p class="handle">@falvojr</p>
             <p class="lead">Slides e referências: <a href="https://falvojr.github.io/ensinar-e-aprender-com-ia" target="_blank" rel="noopener">falvojr.github.io/ensinar-e-aprender-com-ia</a></p>
+            <p class="lead">Participe da pesquisa: <a href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a></p>
             <aside class="notes"><ul><li>Perguntas. Provocação reserva: "que tarefa você daria hoje para um agente, e qual nunca daria?"</li></ul></aside>
         </section>
 
