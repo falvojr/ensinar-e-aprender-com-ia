@@ -159,6 +159,7 @@ body.idle { cursor: none; }
         }
 
         .stage {
+            text-wrap: pretty;
             background-color: var(--bg);
             background-image:
                 linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
@@ -179,15 +180,16 @@ body.idle { cursor: none; }
         .label { font: 500 21px var(--mono); color: var(--accent); margin-bottom: 16px; }
         h1 { font: 700 92px/1.04 var(--display); letter-spacing: -0.02em; }
         h2 { font: 700 62px/1.08 var(--display); letter-spacing: -0.015em; margin-bottom: 24px; }
-        .lead { font-size: 31px; line-height: 1.45; color: var(--muted); max-width: 1180px; }
+        .lead { font-size: 31px; line-height: 1.45; color: var(--muted); }
         .lead strong, p strong { color: var(--text); }
         .accent { color: var(--accent); }
         .cite { position: absolute; left: 110px; bottom: 44px; font: 500 17px var(--mono); color: var(--soft); }
-        .insight { margin-top: 22px; padding: 20px 26px; border-radius: 16px; background: rgba(45, 212, 191, 0.12); border: 1px solid rgba(45, 212, 191, 0.45); font: 600 27px/1.4 var(--display); color: var(--text); max-width: 1180px; }
-        .note { margin-top: 18px; font-size: 25px; color: var(--muted); max-width: 1180px; }
+        .insight { margin-top: 22px; padding: 20px 26px; border-radius: 16px; background: rgba(45, 212, 191, 0.12); border: 1px solid rgba(45, 212, 191, 0.45); font: 600 27px/1.4 var(--display); color: var(--text); }
+        .note { margin-top: 18px; font-size: 25px; color: var(--muted); }
         .note strong { color: var(--text); }
 
         /* Capa */
+        .cover h1 { font-size: 84px; }
         .cover .sub { font: 500 40px var(--display); color: var(--accent); margin-top: 18px; }
         .cover .who { margin-top: 64px; font-size: 28px; font-weight: 600; }
         .cover .who span { display: block; font-size: 21px; font-weight: 400; color: var(--muted); margin-top: 6px; }
@@ -198,11 +200,11 @@ body.idle { cursor: none; }
         .disclaimer { margin-top: 24px; font-size: 20px; color: var(--soft); border-left: 3px solid var(--warn); padding-left: 16px; }
 
         /* Pergunta */
-        .question { font: 700 74px/1.12 var(--display); max-width: 1300px; }
+        .question { font: 700 74px/1.12 var(--display); }
         .question em { font-style: normal; color: var(--accent); }
 
         /* Cartão de resposta */
-        .answer { margin-top: 30px; display: grid; grid-template-columns: 70px 1fr; gap: 18px; align-items: center; padding: 24px 28px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); max-width: 1180px; }
+        .answer { margin-top: 30px; display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: center; padding: 24px 28px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
         .answer b { font-size: 44px; }
         .answer p { font-size: 28px; line-height: 1.4; color: var(--text); }
 
@@ -244,7 +246,7 @@ body.idle { cursor: none; }
         .neq i { font-style: normal; color: var(--accent); padding: 0 14px; }
 
         /* Citação da tese */
-        .quote { font: 500 40px/1.3 var(--display); color: var(--text); border-left: 5px solid var(--accent); padding-left: 26px; max-width: 1200px; }
+        .quote { font: 500 40px/1.3 var(--display); color: var(--text); border-left: 5px solid var(--accent); padding-left: 26px; }
         .quote cite { display: block; margin-top: 10px; font: 500 18px var(--mono); color: var(--soft); font-style: normal; }
 
         /* Quatro jeitos */
@@ -329,7 +331,7 @@ body.idle { cursor: none; }
         .flow-cap + .flow { margin-top: 10px; }
 
         /* Referências */
-        .biblio { list-style: none; display: flex; flex-direction: column; gap: 16px; max-width: 1340px; }
+        .biblio { list-style: none; display: flex; flex-direction: column; gap: 16px; }
         .biblio li { display: grid; grid-template-columns: 54px 1fr; align-items: baseline; }
         .biblio .n { font: 600 17px var(--mono); color: var(--accent); }
         .biblio .t { font: 600 21px/1.3 var(--display); color: var(--text); }
@@ -342,7 +344,7 @@ body.idle { cursor: none; }
         .thanks .handle { font: 600 32px var(--mono); color: var(--accent); margin-top: 18px; }
         .thanks .lead { margin-top: 40px; }
         .thanks .lead + .lead { margin-top: 36px; }
-        .thanks .audience { margin-top: 10px; font-size: 25px; line-height: 1.4; color: var(--muted); border-left: 4px solid var(--warn); padding-left: 18px; max-width: 1180px; }
+        .thanks .audience { margin-top: 10px; font-size: 25px; line-height: 1.4; color: var(--muted); border-left: 4px solid var(--warn); padding-left: 18px; }
         .thanks .audience strong { color: var(--text); }
         .thanks .lead a { color: var(--text); text-underline-offset: 6px; }
     </style>
@@ -407,7 +409,7 @@ body.idle { cursor: none; }
         <section class="slide no-rail" data-title="A Pergunta">
             <p class="label">A pergunta de hoje</p>
             <p class="question">O que muda, na prática, para <em>quem ensina</em> e para <em>quem aprende</em>?</p>
-            <p class="lead" style="margin-top: 36px;">Para responder sem hype, vou contar como a pesquisa começou e como a IA mudou os nossos achados.</p>
+            <p class="lead" style="margin-top: 36px;">Sem hype: vou contar como a pesquisa começou e como a IA mudou os nossos achados.</p>
             <aside class="notes">
                 <ul>
                     <li>Pedir no chat: "Você usa IA mais para ensinar, para aprender ou para os dois?"</li>
@@ -421,8 +423,8 @@ body.idle { cursor: none; }
             <div class="rail" data-at="1"></div>
             <p class="label">Capítulo 1 · Mestrado</p>
             <h2>Reusar o Comum, Variar o Específico</h2>
-            <p class="lead">A pergunta do mestrado: como construir apps de aprendizagem móvel <strong>sem começar do zero</strong> a cada projeto?</p>
-            <div class="answer"><b aria-hidden="true">🧩</b><p>Uma linha de produto de software: um núcleo reutilizável e as variações de cada contexto educacional <span class="cites" data-refs="jucs2022"></span>.</p></div>
+            <p class="lead">A pergunta do mestrado: como criar apps de aprendizagem móvel <strong>sem começar do zero</strong>?</p>
+            <div class="answer"><b aria-hidden="true">🧩</b><p>Uma linha de produto de software: um núcleo reutilizável e as variações de cada contexto <span class="cites" data-refs="jucs2022"></span>.</p></div>
             <p class="note">Primeira lição de engenharia que levo até hoje: <strong>reuso e variabilidade</strong>.</p>
             <aside class="notes">
                 <ul>
@@ -439,7 +441,7 @@ body.idle { cursor: none; }
             <p class="label">Capítulo 2 · Início do doutorado</p>
             <h2>Antes de Construir, Mapear</h2>
             <p class="lead">Como a tecnologia apoia o ensino e a aprendizagem com línguas de sinais?</p>
-            <div class="bigstat"><b>185</b><span>estudos primários num mapeamento sistemático, com olhar nacional e internacional <span class="cites" data-refs="renote2020"></span></span></div>
+            <div class="bigstat"><b>185</b><span>estudos primários num mapeamento sistemático, nacional e internacional <span class="cites" data-refs="renote2020"></span></span></div>
             <p class="note">O que encontramos: a maioria das soluções era software, mas só duas eram claramente multiplataforma. E <strong>faltavam padrões e boas práticas para compartilhar e reusar objetos de aprendizagem</strong>, como aulas e vídeos.</p>
             <p class="insight">Essa lacuna virou a pergunta do doutorado.</p>
             <aside class="notes">
@@ -462,7 +464,7 @@ body.idle { cursor: none; }
                 <div class="arrow" aria-hidden="true">→</div>
                 <div class="node key"><span class="ic" aria-hidden="true">🎙️</span><b>Serviço de fala</b><small>Uma peça trocável</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node"><span class="ic" aria-hidden="true">📝</span><b>Texto com marcação de tempo</b><small>A ponte entre as partes</small></div>
+                <div class="node"><span class="ic" aria-hidden="true">📝</span><b>Texto sincronizado</b><small>A ponte entre as partes</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
                 <div class="node"><span class="ic" aria-hidden="true">🤟</span><b>Acessibilidade</b><small>Legenda, transcrição navegável e avatar de Libras</small></div>
             </div>
@@ -486,10 +488,10 @@ body.idle { cursor: none; }
                 <div>
                     <p>Em 2022, a OpenAI lançou o <strong>Whisper</strong>, para fala, e o <strong>ChatGPT</strong>, para texto.</p>
                     <p class="frag" data-step="resultado">Comparamos cinco serviços de reconhecimento de fala com aulas reais em português, inglês e espanhol <span class="cites" data-refs="hicss2024"></span>. O Whisper teve a maior média nos três idiomas.</p>
-                    <p class="insight frag" data-step="resultado">Como o serviço de fala era peça trocável, o novo modelo virou o padrão sem reescrever a arquitetura.</p>
+                    <p class="insight frag" data-step="resultado">O serviço de fala era peça trocável: o Whisper virou o padrão sem reescrever a arquitetura.</p>
                 </div>
                 <div class="bars frag" data-step="resultado" role="img" aria-label="Similaridade léxica média em português, índice de Jaccard de 0 a 1: OpenAI 0,67; Microsoft 0,59; IBM 0,58; Amazon 0,54; Google 0,52">
-                    <h3>Similaridade léxica média em português (índice de Jaccard, de 0 a 1) <span class="cites" data-refs="hicss2024"></span></h3>
+                    <h3>Similaridade léxica média em português (Jaccard, de 0 a 1) <span class="cites" data-refs="hicss2024"></span></h3>
                     <div class="bar best"><span>OpenAI</span><i style="width: 100%"></i><em>0,67</em></div>
                     <div class="bar"><span>Microsoft</span><i style="width: 88%"></i><em>0,59</em></div>
                     <div class="bar"><span>IBM</span><i style="width: 87%"></i><em>0,58</em></div>
@@ -547,7 +549,7 @@ body.idle { cursor: none; }
                 <div class="arrow" aria-hidden="true">→</div>
                 <div class="node"><span class="ic" aria-hidden="true">🤟</span><b>Avatar</b><small>Menos tradução literal</small></div>
                 <div class="arrow" aria-hidden="true">→</div>
-                <div class="node key"><span class="ic" aria-hidden="true">👥</span><b>Validação humana</b><small>Com intérpretes e estudantes surdos</small></div>
+                <div class="node key"><span class="ic" aria-hidden="true">👥</span><b>Validação humana</b><small>Intérpretes e estudantes surdos</small></div>
             </div>
             </div>
             <p class="insight">Enquanto a pesquisa avançava com cuidado, a indústria chegou aos agentes primeiro.</p>
@@ -568,7 +570,7 @@ body.idle { cursor: none; }
             <div class="ways">
                 <div class="way"><span class="ic" aria-hidden="true">👂</span><h3>Transcrever</h3><p>A fala vira texto.</p></div>
                 <div class="way"><span class="ic" aria-hidden="true">✍️</span><h3>Escrever</h3><p>O prompt vira rascunho.</p></div>
-                <div class="way"><span class="ic" aria-hidden="true">🔗</span><h3>Encadear</h3><p>O pipeline segue passos fixos.</p></div>
+                <div class="way"><span class="ic" aria-hidden="true">🔗</span><h3>Encadear</h3><p>O pipeline tem passos fixos.</p></div>
                 <div class="way now"><span class="ic" aria-hidden="true">🤖</span><h3>Agir</h3><p>O agente decide os passos.</p></div>
             </div>
             <p class="note">A diferença está em quem decide. No pipeline, o caminho está escrito no código. No <strong>agente</strong>, o modelo escolhe os próprios passos e ferramentas a partir do resultado de cada ação <span class="cites" data-refs="agents2024"></span>.</p>
@@ -662,8 +664,8 @@ body.idle { cursor: none; }
                     <div class="join">
                         <a class="qr" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code do formulário da pesquisa" shape-rendering="crispEdges" viewBox="0 0 37 37"><path fill="#fff" d="M0 0h37v37h-37z"/><path stroke="#0b1020" d="M4 4.5h7m1 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h7m-29 1h1m5 0h1m1 0h1m3 0h2m4 0h1m1 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h2m3 0h1m5 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h4m1 0h1m2 0h2m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h3m2 0h2m1 0h2m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h4m5 0h1m1 0h1m-20 1h1m1 0h2m1 0h3m3 0h1m1 0h1m1 0h1m2 0h3m1 0h1m2 0h1m1 0h2m-29 1h1m2 0h2m3 0h1m2 0h4m2 0h2m1 0h1m1 0h3m3 0h1m-28 1h6m2 0h1m1 0h1m1 0h1m2 0h1m9 0h2m-28 1h1m2 0h2m2 0h1m1 0h3m3 0h2m1 0h1m2 0h1m1 0h2m3 0h1m-28 1h3m2 0h1m1 0h1m5 0h4m1 0h1m1 0h1m3 0h2m-24 1h3m2 0h2m1 0h2m1 0h1m1 0h4m2 0h1m3 0h3m-28 1h1m1 0h2m1 0h2m5 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h3m-29 1h1m3 0h1m2 0h2m2 0h1m2 0h3m4 0h2m1 0h1m2 0h1m-28 1h1m1 0h1m1 0h1m1 0h7m1 0h1m1 0h1m2 0h3m2 0h2m1 0h1m-26 1h1m1 0h2m1 0h1m1 0h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h3m-28 1h1m1 0h5m1 0h2m3 0h4m1 0h1m1 0h1m2 0h1m2 0h1m-23 1h1m2 0h1m2 0h2m1 0h7m1 0h2m1 0h1m1 0h1m-26 1h2m1 0h5m1 0h5m2 0h2m1 0h7m-19 1h2m2 0h1m3 0h1m3 0h1m3 0h5m-29 1h7m1 0h2m4 0h1m2 0h4m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m3 0h4m1 0h3m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h1m1 0h1m5 0h1m2 0h5m1 0h2m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h7m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m2 0h2m1 0h3m4 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m2 0h1m1 0h1m-28 1h7m1 0h3m2 0h3m2 0h3m6 0h1"/></svg></a>
                         <div>
-                            <b>É ouvinte e fluente em português e Libras? Participe.</b>
-                            <span>Buscamos TILS, CODAs e ouvintes sinalizantes para uma entrevista por Google Meet de até 30 minutos. O formulário é só para esse público.</span>
+                            <b>É ouvinte e fluente em português e Libras?</b>
+                            <span>Participe: buscamos TILS, CODAs e ouvintes sinalizantes para uma entrevista por Google Meet de até 30 minutos. O formulário é só para esse público.</span>
                             <a class="url" href="https://forms.gle/hkWZNrKs1uwhjwUS8" target="_blank" rel="noopener">forms.gle/hkWZNrKs1uwhjwUS8</a>
                             <small>Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.</small>
                         </div>
