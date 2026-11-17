@@ -44,7 +44,7 @@ Numeradas na ordem em que aparecem nos slides. Nos slides, cada número entre co
 
 ## 🔗 Links
 
-- [Player acessível v2 (demo)](https://falvojr.github.io/speech2learning/player/v2)
+- [Participe da pesquisa Speech2Learning](https://forms.gle/hkWZNrKs1uwhjwUS8): buscamos pessoas ouvintes fluentes em Português e Libras (TILS, CODAs e ouvintes sinalizantes) para uma entrevista por Google Meet de até 30 minutos. Pesquisa aprovada pelo CEP/EACH-USP, CAAE 78381524.3.0000.5390.
 - [IA e Carreiras do Futuro](https://github.com/falvojr/dio-carreiras-futuro), a palestra anterior
 
 ## 🛠️ Sobre o Desenvolvimento
